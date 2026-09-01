@@ -3,13 +3,13 @@ package it.unicam.cs.mpgc.rpg129230;
 public abstract class Entity {
 
     private String name;
-    private int healthPoints;
-    private int attackPower;
-    private int defensePower;
-    private int experience;
+    protected int healthPoints;
+    protected int attackPower;
+    protected int defensePower;
+    protected int experience;
     private boolean alive = true;
 
-    public Entity(String name, int healthPoints, int attackPower, int defensePower, int experience, boolean alive) {
+    protected Entity(String name, int healthPoints, int attackPower, int defensePower, int experience, boolean alive) {
 
 
         this.name = name;
@@ -20,7 +20,7 @@ public abstract class Entity {
         this.alive = alive;
     }
 
-    public void attackEntity(Entity target) {
+    protected void attackEntity(Entity target) {
         int damage = this.attackPower - target.getDefensePower();
 
         if (damage > 0) {
@@ -28,7 +28,7 @@ public abstract class Entity {
         }
     }
 
-    public void takeDamage(int damage) {
+    protected void takeDamage(int damage) {
         this.healthPoints -= damage;
 
         if (healthPoints <= 0) {
@@ -37,7 +37,7 @@ public abstract class Entity {
         }
     }
 
-    public boolean isAlive(){
+    protected boolean isAlive(){
         return this.alive;
     }
 
