@@ -17,7 +17,6 @@ public abstract class Entity {
         this.attackPower = attackPower;
         this.defensePower = defensePower;
         this.experience = experience;
-        this.alive = alive;
     }
 
     protected void attackEntity(Entity target) {

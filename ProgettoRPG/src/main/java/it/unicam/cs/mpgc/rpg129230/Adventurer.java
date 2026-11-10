@@ -2,12 +2,12 @@ package it.unicam.cs.mpgc.rpg129230;
 
 public class Adventurer extends Entity {
 
-    private int level;
+    private int level = 1;
+    private static final int XP_TO_LEVEL_UP = 100;
 
     public Adventurer(String name, int healthPoints, int attackPower, int defensePower, int experience, boolean alive, int level) {
         super(name, healthPoints, attackPower, defensePower, experience, alive);
 
-        this.level = 1;
     }
 
     public Adventurer() {
@@ -19,18 +19,22 @@ public class Adventurer extends Entity {
                 true);
     }
 
-    private void gainExperience(Enemies enemy) {
+    public void gainExperience(Enemies enemy) {
 
         if (!enemy.isAlive()){
             this.experience += enemy.experience;
         }
+
+        levelUp();
     }
+
+
 
     private void levelUp(){
 
-        if(this.getExperience() >= 100){
+        while (this.getExperience() >= XP_TO_LEVEL_UP) {
             this.level++;
-            this.experience = 0;
+            this.experience = this.experience - XP_TO_LEVEL_UP;
             this.attackPower += (int) (2 + (Math.random() * (5 - 2)));
             this.defensePower += (int) (2 + (Math.random() * (5 - 2)));
             this.healthPoints += (int) (5 + (Math.random() * (10 - 5)));
