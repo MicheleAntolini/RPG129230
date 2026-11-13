@@ -20,7 +20,8 @@ public abstract class Entity {
     }
 
     protected void attackEntity(Entity target) {
-        int damage = this.attackPower - target.getDefensePower();
+
+        int damage = this.attackPower * 100 / (100 + target.getDefensePower());
 
         if (damage > 0) {
             target.takeDamage(damage);

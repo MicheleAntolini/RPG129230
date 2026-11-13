@@ -29,7 +29,6 @@ public class Adventurer extends Entity {
     }
 
 
-
     private void levelUp(){
 
         while (this.getExperience() >= XP_TO_LEVEL_UP) {
