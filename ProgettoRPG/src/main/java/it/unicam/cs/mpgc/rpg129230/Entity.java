@@ -3,20 +3,20 @@ package it.unicam.cs.mpgc.rpg129230;
 public abstract class Entity {
 
     private String name;
+    protected int maxHealthPoints;
     protected int healthPoints;
     protected int attackPower;
     protected int defensePower;
-    protected int experience;
     private boolean alive = true;
 
-    protected Entity(String name, int healthPoints, int attackPower, int defensePower, int experience, boolean alive) {
+    protected Entity(String name, int maxHealthPoints, int attackPower, int defensePower) {
 
 
         this.name = name;
-        this.healthPoints = healthPoints;
+        this.maxHealthPoints = maxHealthPoints;
+        this.healthPoints = maxHealthPoints;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
-        this.experience = experience;
     }
 
     protected void attackEntity(Entity target) {
@@ -45,6 +45,10 @@ public abstract class Entity {
         return name;
     }
 
+    public int getMaxHealthPoints() {
+        return maxHealthPoints;
+    }
+
     public int getHealthPoints() {
         return healthPoints;
     }
@@ -55,9 +59,5 @@ public abstract class Entity {
 
     public int getDefensePower() {
         return defensePower;
-    }
-
-    public int getExperience() {
-        return experience;
     }
 }

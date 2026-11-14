@@ -77,6 +77,20 @@
 }</component>
   <component name="ProjectId" id="3Igh8kwWkTc1UHdBlKnmd3fQPqT" />
   <component name="ProjectSessionTemplates">
+    <option name="inlineTemplate">
+      <template>
+        <option name="ensembleEnabled" value="true" />
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="ensemble" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
     <option name="panelTemplate">
       <template>
         <option name="ensembleEnabled" value="false" />
