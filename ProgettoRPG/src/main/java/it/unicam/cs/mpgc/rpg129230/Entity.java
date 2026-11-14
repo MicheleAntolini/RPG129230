@@ -7,7 +7,7 @@ public abstract class Entity {
     protected int healthPoints;
     protected int attackPower;
     protected int defensePower;
-    private boolean alive = true;
+    private boolean isAlive;
 
     protected Entity(String name, int maxHealthPoints, int attackPower, int defensePower) {
 
@@ -17,6 +17,7 @@ public abstract class Entity {
         this.healthPoints = maxHealthPoints;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
+        this.isAlive = true;
     }
 
     protected void attackEntity(Entity target) {
@@ -33,12 +34,12 @@ public abstract class Entity {
 
         if (healthPoints <= 0) {
             healthPoints = 0;
-            this.alive = false;
+            this.isAlive = false;
         }
     }
 
-    protected boolean isAlive(){
-        return this.alive;
+    public boolean isAlive(){
+        return this.isAlive;
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-package it.unicam.cs.mpgc.rpg129230;
+package it.unicam.cs.mpgc.rpg129230.badEntity;
 
 public class Skeleton extends Enemies {
     public Skeleton(String name, int maxHealthPoints, int attackPower, int defensePower, int experienceReward) {

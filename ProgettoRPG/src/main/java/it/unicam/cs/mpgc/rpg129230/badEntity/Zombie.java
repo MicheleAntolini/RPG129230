@@ -1,4 +1,4 @@
-package it.unicam.cs.mpgc.rpg129230;
+package it.unicam.cs.mpgc.rpg129230.badEntity;
 
 public class Zombie extends Enemies {
     public Zombie(String name, int maxHealthPoints, int attackPower, int defensePower, int experienceReward) {

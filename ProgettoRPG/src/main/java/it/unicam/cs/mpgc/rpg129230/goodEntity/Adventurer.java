@@ -1,12 +1,15 @@
-package it.unicam.cs.mpgc.rpg129230;
+package it.unicam.cs.mpgc.rpg129230.goodEntity;
 
-public class Adventurer extends Entity {
+import it.unicam.cs.mpgc.rpg129230.badEntity.Enemies;
+import it.unicam.cs.mpgc.rpg129230.Entity;
+
+public abstract class Adventurer extends Entity {
 
     private int level = 1;
     private int experience = 0;
     private static final int XP_TO_LEVEL_UP = 100;
 
-    public Adventurer(String name, int maxHealthPoints, int attackPower, int defensePower, int level, int experience) {
+    protected Adventurer(String name, int maxHealthPoints, int attackPower, int defensePower, int level, int experience) {
         super(name, maxHealthPoints, attackPower, defensePower);
 
         this.level = level;
