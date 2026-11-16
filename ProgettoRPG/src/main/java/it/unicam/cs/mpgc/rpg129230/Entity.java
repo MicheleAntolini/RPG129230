@@ -42,6 +42,10 @@ public abstract class Entity {
         return this.isAlive;
     }
 
+    protected static int statRandomizer(int min, int max) {
+        return min + (int) (Math.random() * (max - min + 1));
+    }
+
     public String getName() {
         return name;
     }

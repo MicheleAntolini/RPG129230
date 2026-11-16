@@ -1,12 +1,12 @@
 package it.unicam.cs.mpgc.rpg129230.goodEntity;
 
-import it.unicam.cs.mpgc.rpg129230.badEntity.Enemies;
+import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.Entity;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;
 
 public abstract class Adventurer extends Entity {
 
-    private int level = 1;
+    private int level;
     private int experience = 0;
     private static final int XP_TO_LEVEL_UP = 100;
 
@@ -17,10 +17,10 @@ public abstract class Adventurer extends Entity {
         this.experience = experience;
     }
 
-    public void gainExperience(Enemies enemy) {
+    public void gainExperience(Enemy enemy) {
 
         if (!enemy.isAlive()){
-            this.experience += enemy.getExperienceMob();
+            this.experience += enemy.getExperienceReward();
         }
 
         levelUp();

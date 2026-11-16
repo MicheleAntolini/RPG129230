@@ -8,6 +8,10 @@ public class Knight extends Adventurer {
         super(name, maxHealthPoints, attackPower, defensePower, level, experience);
     }
 
+    public Knight() {
+        super("Knight", statRandomizer(110, 160), statRandomizer(10, 16), statRandomizer(20, 28), 1, 0);
+    }
+
     public boolean canEquip(Weapon weapon) {
         return weapon instanceof Sword;
     }

@@ -1,10 +1,19 @@
 package it.unicam.cs.mpgc.rpg129230.bossEntity;
 
-import it.unicam.cs.mpgc.rpg129230.Entity;
+import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
+import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
 
-public abstract class Boss extends Entity {
+public abstract class Boss extends Enemy {
 
-    public Boss(String name, int maxHealthPoints, int attackPower, int defensePower) {
-        super(name, maxHealthPoints, attackPower, defensePower);
+    protected Boss(String name, int maxHealthPoints, int attackPower, int defensePower, int experienceReward) {
+        super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
+
+    public abstract void specialMove(Adventurer target);
+
+    public boolean isInSecondPhase(){
+
+        return getHealthPoints() <= getMaxHealthPoints() / 2;
+    }
+
 }
