@@ -14,9 +14,7 @@ public abstract class Enemies extends Entity {
 
     public int getExperienceMob() {
 
-        int experienceMob = this.experienceReward;
-
-        return experienceMob;
+        return experienceReward;
     }
 
 }

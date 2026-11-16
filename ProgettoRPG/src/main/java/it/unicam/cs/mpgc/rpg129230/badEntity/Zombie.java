@@ -9,5 +9,4 @@ public class Zombie extends Enemies {
         super("Zombie", 30, 15, 18, 20);
     }
 
-
 }

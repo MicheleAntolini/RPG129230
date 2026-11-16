@@ -4,4 +4,8 @@ public class Wolf extends Enemies {
     public Wolf(String name, int maxHealthPoints, int attackPower, int defensePower, int experienceReward) {
         super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
+
+    public Wolf() {
+        super("Wolf", 40, 20, 15, 25);
+    }
 }

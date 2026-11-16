@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129230.goodEntity;
 
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemies;
 import it.unicam.cs.mpgc.rpg129230.Entity;
+import it.unicam.cs.mpgc.rpg129230.item.Weapon;
 
 public abstract class Adventurer extends Entity {
 
@@ -24,6 +25,8 @@ public abstract class Adventurer extends Entity {
 
         levelUp();
     }
+
+    public abstract boolean canEquip(Weapon weapon);
 
 
     private void levelUp(){
