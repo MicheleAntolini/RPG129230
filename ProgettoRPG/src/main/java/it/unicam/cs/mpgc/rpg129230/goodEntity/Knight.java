@@ -12,7 +12,9 @@ public class Knight extends Adventurer {
         super("Knight", statRandomizer(110, 160), statRandomizer(10, 16), statRandomizer(20, 28), 1, 0);
     }
 
+    @Override
     public boolean canEquip(Weapon weapon) {
         return weapon instanceof Sword;
     }
+
 }

@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.goodEntity;
 
+import it.unicam.cs.mpgc.rpg129230.Inventory;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.Entity;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;
@@ -9,6 +10,7 @@ public abstract class Adventurer extends Entity {
     private int level;
     private int experience = 0;
     private static final int XP_TO_LEVEL_UP = 100;
+    private final Inventory inventory = new Inventory();
 
     protected Adventurer(String name, int maxHealthPoints, int attackPower, int defensePower, int level, int experience) {
         super(name, maxHealthPoints, attackPower, defensePower);
@@ -28,15 +30,21 @@ public abstract class Adventurer extends Entity {
 
     public abstract boolean canEquip(Weapon weapon);
 
+    public void equipWeapon(Weapon weapon) {
+
+        if (canEquip(weapon)) {
+            inventory.equipWeapon(weapon);
+        }
+    }
 
     private void levelUp(){
 
         while (this.getExperience() >= XP_TO_LEVEL_UP) {
             this.level++;
             this.experience = this.experience - XP_TO_LEVEL_UP;
-            this.attackPower += (int) (2 + (Math.random() * (5 - 2)));
-            this.defensePower += (int) (2 + (Math.random() * (5 - 2)));
-            this.healthPoints += (int) (5 + (Math.random() * (10 - 5)));
+            this.attackPower += statRandomizer(4, 9);
+            this.defensePower += statRandomizer(4, 9);
+            this.maxHealthPoints += statRandomizer(10, 20);
         }
     }
 
@@ -46,5 +54,9 @@ public abstract class Adventurer extends Entity {
 
     public int getExperience() {
         return experience;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }
