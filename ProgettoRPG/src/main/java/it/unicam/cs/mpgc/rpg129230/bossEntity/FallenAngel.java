@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129230.bossEntity;
 
 import it.unicam.cs.mpgc.rpg129230.Affinity;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public class FallenAngel extends Boss {
 
@@ -10,7 +11,7 @@ public class FallenAngel extends Boss {
     }
 
     public FallenAngel() {
-        super("Fallen Angel", 650, statRandomizer(60, 75), statRandomizer(80, 90), 1000);
+        super("Fallen Angel", 650, Dice.roll(60, 75), Dice.roll(80, 90), 1000);
     }
 
     @Override

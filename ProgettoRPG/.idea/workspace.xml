@@ -7,7 +7,9 @@
     <list default="true" id="9562fd8b-0f5c-483f-bfd0-fa6e8dbb48f0" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Affinity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/AttackType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Battle.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/BattleAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Dice.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Inventory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/RoomType.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Ghost.java" afterDir="false" />
@@ -93,6 +95,9 @@
     &quot;accountId&quot;: &quot;0ddc5257-3b85-46dd-9efe-59a119b82cf8&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Security Analysis" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4,
   &quot;fromUser&quot;: false
@@ -133,21 +138,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/miche/Desktop/progetto/ProgettoRPG/src/main/java/org/example/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.ProgettoRPG [:it.unicam.cs.mpgc.rpg129230.Main.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/miche/Desktop/progetto/ProgettoRPG/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "configurable.group.tools"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.unicam.cs.mpgc.rpg129230.Main" />
+      <module name="ProgettoRPG.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.unicam.cs.mpgc.rpg129230.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

@@ -1,4 +1,5 @@
 package it.unicam.cs.mpgc.rpg129230.badEntity;
+import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public class Zombie extends Enemy {
     public Zombie(String name, int maxHealthPoints, int attackPower, int defensePower, int experienceReward) {
@@ -6,7 +7,7 @@ public class Zombie extends Enemy {
     }
 
     public Zombie() {
-        super("Zombie", statRandomizer(30, 38), statRandomizer(15, 25), statRandomizer(18, 25), statRandomizer(10, 20));
+        super("Zombie", Dice.roll(30, 38), Dice.roll(15, 25), Dice.roll(18, 25), Dice.roll(10, 20));
     }
 
 }

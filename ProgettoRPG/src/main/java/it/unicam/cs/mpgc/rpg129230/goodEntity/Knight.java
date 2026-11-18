@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.goodEntity;
 
+import it.unicam.cs.mpgc.rpg129230.Dice;
 import it.unicam.cs.mpgc.rpg129230.item.Sword;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;
 
@@ -9,7 +10,10 @@ public class Knight extends Adventurer {
     }
 
     public Knight() {
-        super("Knight", statRandomizer(110, 160), statRandomizer(10, 16), statRandomizer(20, 28), 1, 0);
+        super("Knight", Dice.roll(110, 160), Dice.roll(10, 16), Dice.roll(20, 28), 1, 0);
+        Weapon sword = new Sword("Spada", 1);
+        getInventory().addItem(sword);
+        equipWeapon(sword);
     }
 
     @Override

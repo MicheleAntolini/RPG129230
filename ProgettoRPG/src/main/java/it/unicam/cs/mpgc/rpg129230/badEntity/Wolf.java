@@ -1,4 +1,5 @@
 package it.unicam.cs.mpgc.rpg129230.badEntity;
+import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public class Wolf extends Enemy {
     public Wolf(String name, int maxHealthPoints, int attackPower, int defensePower, int experienceReward) {
@@ -6,6 +7,6 @@ public class Wolf extends Enemy {
     }
 
     public Wolf() {
-        super("Wolf", statRandomizer(55, 70), statRandomizer(20, 30), statRandomizer(20, 28), statRandomizer(30, 50));
+        super("Wolf", Dice.roll(55, 70), Dice.roll(20, 30), Dice.roll(20, 28), Dice.roll(30, 50));
     }
 }

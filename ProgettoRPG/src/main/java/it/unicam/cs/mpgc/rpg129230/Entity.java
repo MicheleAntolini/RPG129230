@@ -20,16 +20,8 @@ public abstract class Entity {
         this.isAlive = true;
     }
 
-    protected void attackEntity(Entity target) {
 
-        int damage = this.attackPower * 100 / (100 + target.getDefensePower());
-
-        if (damage > 0) {
-            target.takeDamage(damage);
-        }
-    }
-
-    protected void takeDamage(int damage) {
+    public void takeDamage(int damage) {
         this.healthPoints -= damage;
 
         if (healthPoints <= 0) {
@@ -42,9 +34,6 @@ public abstract class Entity {
         return this.isAlive;
     }
 
-    protected static int statRandomizer(int min, int max) {
-        return min + (int) (Math.random() * (max - min + 1));
-    }
 
     public String getName() {
         return name;

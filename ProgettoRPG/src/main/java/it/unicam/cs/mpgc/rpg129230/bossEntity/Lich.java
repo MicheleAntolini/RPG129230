@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129230.bossEntity;
 
 import it.unicam.cs.mpgc.rpg129230.Affinity;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public class Lich extends Boss {
 
@@ -10,7 +11,7 @@ public class Lich extends Boss {
     }
 
     public Lich() {
-        super("Lich", 750, statRandomizer(75, 90), statRandomizer(55, 70), 10000);
+        super("Lich", 750, Dice.roll(75, 90), Dice.roll(55, 70), 10000);
     }
 
     @Override

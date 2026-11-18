@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg129230.Inventory;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.Entity;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;
+import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public abstract class Adventurer extends Entity {
 
@@ -42,14 +43,21 @@ public abstract class Adventurer extends Entity {
         while (this.getExperience() >= XP_TO_LEVEL_UP) {
             this.level++;
             this.experience = this.experience - XP_TO_LEVEL_UP;
-            this.attackPower += statRandomizer(4, 9);
-            this.defensePower += statRandomizer(4, 9);
-            this.maxHealthPoints += statRandomizer(10, 20);
+            this.attackPower += Dice.roll(4, 9);
+            this.defensePower += Dice.roll(4, 9);
+            this.maxHealthPoints += Dice.roll(10, 20);
         }
     }
 
     public int getLevel() {
         return level;
+    }
+
+    public int getTotalAttack(){
+        if(inventory.getWeapon() == null){
+            return this.getAttackPower();
+        }
+        return this.getAttackPower() + inventory.getWeapon().getBonusDamage();
     }
 
     public int getExperience() {
