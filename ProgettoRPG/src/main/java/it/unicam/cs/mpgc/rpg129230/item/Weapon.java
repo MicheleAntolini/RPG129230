@@ -1,9 +1,11 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
-public abstract class Weapon extends Item {
+import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
 
-    protected Weapon(String name, int level) {
-        super(name, level);
+public abstract class Weapon extends EquippableItem {
+
+    protected Weapon(String name, int level, Affinity affinity) {
+        super(name, level, affinity);
     }
 
     public int getBonusDamage() {

@@ -1,9 +1,11 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
-public class Necklace extends Item {
+import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
 
-    public Necklace(String name,int level) {
-        super(name, level);
+public class Necklace extends EquippableItem {
+
+    public Necklace(String name,int level, Affinity affinity) {
+        super(name, level, affinity);
     }
 
     public int getHealthBoost() {

@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.bossEntity;
 
-import it.unicam.cs.mpgc.rpg129230.Affinity;
+import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.Dice;
 

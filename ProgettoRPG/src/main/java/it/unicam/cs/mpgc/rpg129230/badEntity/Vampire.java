@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.badEntity;
 
-import it.unicam.cs.mpgc.rpg129230.Affinity;
+import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
 import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public class Vampire extends Enemy {

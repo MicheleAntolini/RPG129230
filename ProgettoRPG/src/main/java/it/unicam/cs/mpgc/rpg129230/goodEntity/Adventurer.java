@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.goodEntity;
 
+import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
 import it.unicam.cs.mpgc.rpg129230.Inventory;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.Entity;
@@ -58,6 +59,13 @@ public abstract class Adventurer extends Entity {
             return this.getAttackPower();
         }
         return this.getAttackPower() + inventory.getWeapon().getBonusDamage();
+    }
+
+    public Affinity getWeaponAffinity(){
+        if (inventory.getWeapon() == null){
+            return null;
+        }
+        return inventory.getWeapon().getAffinity();
     }
 
     public int getExperience() {

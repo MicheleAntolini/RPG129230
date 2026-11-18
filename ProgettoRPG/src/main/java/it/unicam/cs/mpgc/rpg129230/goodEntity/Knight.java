@@ -11,7 +11,7 @@ public class Knight extends Adventurer {
 
     public Knight() {
         super("Knight", Dice.roll(110, 160), Dice.roll(10, 16), Dice.roll(20, 28), 1, 0);
-        Weapon sword = new Sword("Spada", 1);
+        Weapon sword = new Sword("Spada", 1, null);
         getInventory().addItem(sword);
         equipWeapon(sword);
     }

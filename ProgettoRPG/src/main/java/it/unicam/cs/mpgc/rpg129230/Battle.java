@@ -1,5 +1,7 @@
 package it.unicam.cs.mpgc.rpg129230;
 
+import it.unicam.cs.mpgc.rpg129230.Enum.AttackType;
+import it.unicam.cs.mpgc.rpg129230.Enum.BattleAction;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
 
@@ -68,13 +70,13 @@ public class Battle {
         switch(attackType){
             case BASIC -> {
                 int damage = calculateDamage(adventurer.getTotalAttack(), enemy.getDefensePower());
-                enemy.takeDamage(damage, null);
+                enemy.takeDamage(damage, adventurer.getWeaponAffinity());
             }
             case POWER -> {
                 //TODO t
             }
             case IMMOBILIZING -> {
-                //TODO y
+                //TODO y-
             }
         }
     }

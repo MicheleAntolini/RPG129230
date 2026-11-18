@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.badEntity;
 
-import it.unicam.cs.mpgc.rpg129230.Affinity;
+import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
 import it.unicam.cs.mpgc.rpg129230.Entity;
 
 public abstract class Enemy extends Entity {
