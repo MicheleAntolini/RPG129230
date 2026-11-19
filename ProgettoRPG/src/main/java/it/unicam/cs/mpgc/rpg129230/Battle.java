@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg129230.Enum.AttackType;
 import it.unicam.cs.mpgc.rpg129230.Enum.BattleAction;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.item.Potion;
 
 public class Battle {
 
@@ -33,7 +34,7 @@ public class Battle {
        }
     }
 
-    public void playerTurn(BattleAction action, AttackType attackType){
+    public void playerTurn(BattleAction action, AttackType attackType, Potion potion){
 
         defense = false;
         dodge = false;
@@ -43,7 +44,9 @@ public class Battle {
             case DEFEND -> defense = true;
             case DODGE -> dodge = true;
             case USE_ITEM -> {
-                //TODO: usare pozione
+                if (adventurer.getInventory().removePotion(potion)) {
+                    adventurer.heal(potion.getHealthRestore());
+                }
             }
         }
         adventurerTurn = false;

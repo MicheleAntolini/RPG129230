@@ -7,6 +7,7 @@ import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Vampire;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Knight;
+import it.unicam.cs.mpgc.rpg129230.item.Potion;
 import it.unicam.cs.mpgc.rpg129230.item.Sword;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;
 
@@ -29,7 +30,7 @@ public class Main {
         while (!battle.isBattleOver()) {
 
             if (battle.isAdventurerTurn()) {
-                battle.playerTurn(BattleAction.ATTACK, AttackType.BASIC);
+                battle.playerTurn(BattleAction.ATTACK, AttackType.BASIC,  null);
                 System.out.println("L'eroe attacca");
             } else {
                 battle.enemyTurn();

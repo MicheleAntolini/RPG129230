@@ -30,6 +30,14 @@ public abstract class Entity {
         }
     }
 
+    public void heal(int amount) {
+        this.healthPoints += amount;
+
+        if (healthPoints > maxHealthPoints) {
+            healthPoints = maxHealthPoints;
+        }
+    }
+
     public boolean isAlive(){
         return this.isAlive;
     }

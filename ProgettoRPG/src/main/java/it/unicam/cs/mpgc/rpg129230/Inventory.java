@@ -59,6 +59,10 @@ public class Inventory {
         }
     }
 
+    public boolean removePotion(Potion potion) {
+        return potionSlot.remove(potion);
+    }
+
     public void addItem(Item newItem){
         backpack.add(newItem);
     }
