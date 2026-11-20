@@ -10,7 +10,8 @@ public class Ghost extends Enemy {
         super("Ghost", Dice.roll(10, 15), Dice.roll(18, 24), 0, Dice.roll(30, 50));
     }
 
-    public void intangible() {
-         //TODO: Implement the intangible ability for the Ghost class, which allows it to avoid damage from physical attacks for a certain percentage.
+    @Override
+    public int getEvasion() {
+        return 30;
     }
 }

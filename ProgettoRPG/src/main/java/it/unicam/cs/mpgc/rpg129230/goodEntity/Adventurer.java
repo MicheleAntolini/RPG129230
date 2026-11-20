@@ -5,6 +5,7 @@ import it.unicam.cs.mpgc.rpg129230.Enum.Stat;
 import it.unicam.cs.mpgc.rpg129230.item.Inventory;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.Entity;
+import it.unicam.cs.mpgc.rpg129230.item.Necklace;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;
 import it.unicam.cs.mpgc.rpg129230.Dice;
 
@@ -38,6 +39,20 @@ public abstract class Adventurer extends Entity {
         if (canEquip(weapon)) {
             inventory.equipWeapon(weapon);
         }
+    }
+
+    /** Equipaggia una collana, togliendo il bonus vita di quella vecchia e aggiungendo il nuovo. */
+    public void equipNecklace(Necklace newNecklace) {
+        Necklace old = inventory.getNecklace();
+        if (old != null) {
+            maxHealthPoints -= old.getHealthBoost();
+            if (healthPoints > maxHealthPoints) {
+                healthPoints = maxHealthPoints;
+            }
+        }
+        inventory.equipNecklace(newNecklace);
+        maxHealthPoints += newNecklace.getHealthBoost();
+        healthPoints += newNecklace.getHealthBoost();
     }
 
     private void levelUp() {
@@ -78,11 +93,26 @@ public abstract class Adventurer extends Entity {
         return this.getAttackPower() + inventory.getWeapon().getBonusDamage();
     }
 
+    /** Difesa base + bonus dell'anello. */
+    public int getTotalDefense() {
+        if (inventory.getRing() == null) {
+            return getDefensePower();
+        }
+        return getDefensePower() + inventory.getRing().getBonusDefense();
+    }
+
     public Affinity getWeaponAffinity(){
         if (inventory.getWeapon() == null){
             return null;
         }
         return inventory.getWeapon().getAffinity();
+    }
+
+    public Affinity getRingAffinity() {
+        if (inventory.getRing() == null) {
+            return null;
+        }
+        return inventory.getRing().getAffinity();
     }
 
     public int getExperience() {

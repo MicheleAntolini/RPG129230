@@ -16,6 +16,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/BattleAction.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/RoomType.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/Stat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Game.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Ghost.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Skeleton.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Vampire.java" afterDir="false" />
@@ -80,8 +81,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>

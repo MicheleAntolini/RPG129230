@@ -13,6 +13,10 @@ public abstract class Enemy extends Entity {
         this.experienceReward = experienceReward;
     }
 
+    public int getEvasion() {
+        return 0;
+    }
+
     public int getExperienceReward() {
 
         return experienceReward;

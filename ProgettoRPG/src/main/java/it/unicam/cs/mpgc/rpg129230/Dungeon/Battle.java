@@ -62,10 +62,16 @@ public class Battle {
             return;
         }
 
-        int damage = calculateDamage(enemy.getAttackPower(), adventurer.getDefensePower());
+        int damage = calculateDamage(enemy.getAttackPower(), adventurer.getTotalDefense());
 
         if (defense){
             damage = damage * 70 / 100;
+        }
+
+        if (enemy instanceof Boss boss
+                && adventurer.getRingAffinity() != null
+                && adventurer.getRingAffinity() == boss.getWeakness()) {
+            damage = damage * 75 / 100;
         }
 
         if (dodge && Dice.roll(1, 10) <= 3){
@@ -81,6 +87,9 @@ public class Battle {
 
         switch(attackType){
             case BASIC -> {
+                if (Dice.roll(1, 100) <= enemy.getEvasion()) {
+                    return; // il colpo passa attraverso il nemico
+                }
                 int damage = calculateDamage(adventurer.getTotalAttack(), enemy.getDefensePower());
                 enemy.takeDamage(damage, adventurer.getWeaponAffinity());
             }
@@ -112,6 +121,10 @@ public class Battle {
 
     public boolean isAdventurerTurn() {
         return adventurerTurn;
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
     }
 
 }

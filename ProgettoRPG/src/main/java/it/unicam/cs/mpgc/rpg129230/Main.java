@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230;
 
+import it.unicam.cs.mpgc.rpg129230.Dungeon.Battle;
 import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
 import it.unicam.cs.mpgc.rpg129230.Enum.AttackType;
 import it.unicam.cs.mpgc.rpg129230.Enum.BattleAction;
