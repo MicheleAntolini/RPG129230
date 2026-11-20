@@ -1,7 +1,7 @@
-package it.unicam.cs.mpgc.rpg129230.bossEntity;
+package it.unicam.cs.mpgc.rpg129230.bossentity;
 
-import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public class Demon extends Boss {
@@ -13,7 +13,7 @@ public class Demon extends Boss {
     }
 
     public Demon(){
-        super("Demon", 800, Dice.roll(65, 85), Dice.roll(60, 75), 1000);
+        super("Demon", 800, Dice.roll(65, 85), Dice.roll(60, 75), 10000);
     }
 
     @Override

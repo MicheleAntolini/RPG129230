@@ -1,7 +1,7 @@
-package it.unicam.cs.mpgc.rpg129230.bossEntity;
+package it.unicam.cs.mpgc.rpg129230.bossentity;
 
-import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.badentity.Enemy;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 
 public abstract class Boss extends Enemy {
 

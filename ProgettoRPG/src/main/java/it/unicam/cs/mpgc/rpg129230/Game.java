@@ -1,12 +1,12 @@
 package it.unicam.cs.mpgc.rpg129230;
 
-import it.unicam.cs.mpgc.rpg129230.Dungeon.Battle;
-import it.unicam.cs.mpgc.rpg129230.Dungeon.Chest;
-import it.unicam.cs.mpgc.rpg129230.Dungeon.Dungeon;
-import it.unicam.cs.mpgc.rpg129230.Dungeon.Level;
-import it.unicam.cs.mpgc.rpg129230.Enum.RoomType;
-import it.unicam.cs.mpgc.rpg129230.Enum.Stat;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.dungeon.Battle;
+import it.unicam.cs.mpgc.rpg129230.dungeon.Chest;
+import it.unicam.cs.mpgc.rpg129230.dungeon.Dungeon;
+import it.unicam.cs.mpgc.rpg129230.dungeon.Level;
+import it.unicam.cs.mpgc.rpg129230.enums.RoomType;
+import it.unicam.cs.mpgc.rpg129230.enums.Stat;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.item.Item;
 
 /**
@@ -93,7 +93,7 @@ public class Game {
     }
 
     public boolean isBossTime() {
-        return dungeon.isBossTime();
+        return dungeon.isBossTime() && !isVictory();
     }
 
     public Adventurer getHero() {

@@ -1,9 +1,9 @@
-package it.unicam.cs.mpgc.rpg129230.Dungeon;
+package it.unicam.cs.mpgc.rpg129230.dungeon;
 
 import it.unicam.cs.mpgc.rpg129230.Dice;
-import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Knight;
+import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Knight;
 import it.unicam.cs.mpgc.rpg129230.item.*;
 
 public class Chest {

@@ -1,8 +1,8 @@
-package it.unicam.cs.mpgc.rpg129230.Dungeon;
+package it.unicam.cs.mpgc.rpg129230.dungeon;
 
 import it.unicam.cs.mpgc.rpg129230.Dice;
-import it.unicam.cs.mpgc.rpg129230.Enum.RoomType;
-import it.unicam.cs.mpgc.rpg129230.badEntity.*;
+import it.unicam.cs.mpgc.rpg129230.enums.RoomType;
+import it.unicam.cs.mpgc.rpg129230.badentity.*;
 
 import java.util.ArrayList;
 import java.util.List;

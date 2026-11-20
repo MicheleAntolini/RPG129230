@@ -1,7 +1,7 @@
-package it.unicam.cs.mpgc.rpg129230.bossEntity;
+package it.unicam.cs.mpgc.rpg129230.bossentity;
 
-import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.Dice;
 
 public class FallenAngel extends Boss {
@@ -11,7 +11,7 @@ public class FallenAngel extends Boss {
     }
 
     public FallenAngel() {
-        super("Fallen Angel", 650, Dice.roll(60, 75), Dice.roll(80, 90), 1000);
+        super("Fallen Angel", 650, Dice.roll(60, 75), Dice.roll(80, 90), 10000);
     }
 
     @Override

@@ -1,8 +1,8 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
-import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
+import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
 
-public class EquippableItem extends Item{
+public abstract class EquippableItem extends Item{
 
     private final Affinity affinity;
 

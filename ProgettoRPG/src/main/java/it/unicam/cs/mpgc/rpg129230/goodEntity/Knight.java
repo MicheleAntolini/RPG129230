@@ -1,4 +1,4 @@
-package it.unicam.cs.mpgc.rpg129230.goodEntity;
+package it.unicam.cs.mpgc.rpg129230.goodentity;
 
 import it.unicam.cs.mpgc.rpg129230.Dice;
 import it.unicam.cs.mpgc.rpg129230.item.Sword;

@@ -1,11 +1,11 @@
-package it.unicam.cs.mpgc.rpg129230.Dungeon;
+package it.unicam.cs.mpgc.rpg129230.dungeon;
 
 import it.unicam.cs.mpgc.rpg129230.Dice;
-import it.unicam.cs.mpgc.rpg129230.Enum.AttackType;
-import it.unicam.cs.mpgc.rpg129230.Enum.BattleAction;
-import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
-import it.unicam.cs.mpgc.rpg129230.bossEntity.Boss;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.enums.AttackType;
+import it.unicam.cs.mpgc.rpg129230.enums.BattleAction;
+import it.unicam.cs.mpgc.rpg129230.badentity.Enemy;
+import it.unicam.cs.mpgc.rpg129230.bossentity.Boss;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.item.Potion;
 
 public class Battle {

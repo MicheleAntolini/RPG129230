@@ -1,13 +1,13 @@
 package it.unicam.cs.mpgc.rpg129230;
 
-import it.unicam.cs.mpgc.rpg129230.Dungeon.Battle;
-import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
-import it.unicam.cs.mpgc.rpg129230.Enum.AttackType;
-import it.unicam.cs.mpgc.rpg129230.Enum.BattleAction;
-import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
-import it.unicam.cs.mpgc.rpg129230.bossEntity.Demon;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
-import it.unicam.cs.mpgc.rpg129230.goodEntity.Knight;
+import it.unicam.cs.mpgc.rpg129230.dungeon.Battle;
+import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.enums.AttackType;
+import it.unicam.cs.mpgc.rpg129230.enums.BattleAction;
+import it.unicam.cs.mpgc.rpg129230.badentity.Enemy;
+import it.unicam.cs.mpgc.rpg129230.bossentity.Demon;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Knight;
 import it.unicam.cs.mpgc.rpg129230.item.Potion;
 import it.unicam.cs.mpgc.rpg129230.item.Sword;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;

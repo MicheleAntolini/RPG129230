@@ -1,9 +1,9 @@
-package it.unicam.cs.mpgc.rpg129230.goodEntity;
+package it.unicam.cs.mpgc.rpg129230.goodentity;
 
-import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
-import it.unicam.cs.mpgc.rpg129230.Enum.Stat;
+import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.enums.Stat;
 import it.unicam.cs.mpgc.rpg129230.item.Inventory;
-import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
+import it.unicam.cs.mpgc.rpg129230.badentity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.Entity;
 import it.unicam.cs.mpgc.rpg129230.item.Necklace;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;

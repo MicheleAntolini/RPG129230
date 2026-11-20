@@ -1,10 +1,10 @@
-package it.unicam.cs.mpgc.rpg129230.Dungeon;
+package it.unicam.cs.mpgc.rpg129230.dungeon;
 
 import it.unicam.cs.mpgc.rpg129230.Dice;
-import it.unicam.cs.mpgc.rpg129230.bossEntity.Boss;
-import it.unicam.cs.mpgc.rpg129230.bossEntity.Demon;
-import it.unicam.cs.mpgc.rpg129230.bossEntity.FallenAngel;
-import it.unicam.cs.mpgc.rpg129230.bossEntity.Lich;
+import it.unicam.cs.mpgc.rpg129230.bossentity.Boss;
+import it.unicam.cs.mpgc.rpg129230.bossentity.Demon;
+import it.unicam.cs.mpgc.rpg129230.bossentity.FallenAngel;
+import it.unicam.cs.mpgc.rpg129230.bossentity.Lich;
 
 import java.util.ArrayList;
 import java.util.List;

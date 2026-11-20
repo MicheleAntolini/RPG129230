@@ -1,7 +1,7 @@
-package it.unicam.cs.mpgc.rpg129230.Dungeon;
+package it.unicam.cs.mpgc.rpg129230.dungeon;
 
 import it.unicam.cs.mpgc.rpg129230.Dice;
-import it.unicam.cs.mpgc.rpg129230.Enum.RoomType;
+import it.unicam.cs.mpgc.rpg129230.enums.RoomType;
 
 public class Door {
 
@@ -35,5 +35,17 @@ public class Door {
         } else {
             return RoomType.FOUNTAIN;
         }
+    }
+
+    public int getEnemy() {
+        return enemy;
+    }
+
+    public int getTreasure() {
+        return treasure;
+    }
+
+    public int getFountain() {
+        return fountain;
     }
 }

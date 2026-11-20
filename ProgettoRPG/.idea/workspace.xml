@@ -6,28 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="9562fd8b-0f5c-483f-bfd0-fa6e8dbb48f0" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Dice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Dungeon/Battle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Dungeon/Chest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Dungeon/Door.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Dungeon/Dungeon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Dungeon/Level.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/Affinity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/AttackType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/BattleAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/RoomType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Enum/Stat.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Ghost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Skeleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Vampire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Werewolf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Wolf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badEntity/Zombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/bossEntity/Demon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/bossEntity/FallenAngel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/bossEntity/Lich.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/goodEntity/Knight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/goodEntity/Mage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badentity/Ghost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badentity/Skeleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badentity/Vampire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badentity/Werewolf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badentity/Wolf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/badentity/Zombie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/bossentity/Demon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/bossentity/FallenAngel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/bossentity/Lich.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/dungeon/Battle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/dungeon/Chest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/dungeon/Door.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/dungeon/Dungeon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/dungeon/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/enums/Affinity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/enums/AttackType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/enums/BattleAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/enums/RoomType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/enums/Stat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/goodentity/Knight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/goodentity/Mage.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/item/EquippableItem.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/item/Inventory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg129230/item/Item.java" afterDir="false" />
