@@ -9,7 +9,7 @@ public abstract class Boss extends Enemy {
         super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
 
-    public abstract void specialMove(Adventurer target);
+    public abstract boolean specialMove(Adventurer target);
 
     public boolean isInSecondPhase(){
 

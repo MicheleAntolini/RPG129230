@@ -17,12 +17,14 @@ public class Demon extends Boss {
     }
 
     @Override
-    public void specialMove(Adventurer target) {
+    public boolean specialMove(Adventurer target) {
         // Implementation for Demon's special move
         // It generate a dark coat/shield that cover 50% of the incoming damage, and it last for all the combat
-        if (isInSecondPhase()) {
+        if (isInSecondPhase() && !barrierActive) {
             barrierActive = true;
+            return true;
         }
+        return false;
     }
 
     @Override

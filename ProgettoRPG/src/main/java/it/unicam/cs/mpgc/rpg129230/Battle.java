@@ -3,6 +3,7 @@ package it.unicam.cs.mpgc.rpg129230;
 import it.unicam.cs.mpgc.rpg129230.Enum.AttackType;
 import it.unicam.cs.mpgc.rpg129230.Enum.BattleAction;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
+import it.unicam.cs.mpgc.rpg129230.bossEntity.Boss;
 import it.unicam.cs.mpgc.rpg129230.goodEntity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.item.Potion;
 
@@ -53,6 +54,13 @@ public class Battle {
     }
 
     public void enemyTurn(){
+
+        // se il nemico è un boss e usa la sua mossa, il turno finisce qui
+        if (enemy instanceof Boss boss && boss.specialMove(adventurer)) {
+            adventurerTurn = true;
+            return;
+        }
+
         int damage = calculateDamage(enemy.getAttackPower(), adventurer.getDefensePower());
 
         if (defense){

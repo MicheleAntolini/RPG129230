@@ -15,9 +15,16 @@ public class FallenAngel extends Boss {
     }
 
     @Override
-    public void specialMove(Adventurer target) {
+    public boolean specialMove(Adventurer target) {
         // Implementation for Fallen Angel's special move
         // It has 70% chance of hitting the target and deals damage equal to 30% of the target's max health.
+        if (isInSecondPhase() && Dice.roll(1, 3) == 1){
+           if (Dice.roll(1, 10) <= 7){
+               target.takeDamage(target.getMaxHealthPoints() * 30 / 100);
+           }
+           return true;
+        }
+        return false;
     }
 
     @Override
