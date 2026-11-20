@@ -8,6 +8,10 @@ public class Vampire extends Enemy {
         super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
 
+    public Vampire() {
+        super("Vampire", Dice.roll(140, 180), Dice.roll(55, 65), Dice.roll(30, 40), Dice.roll(70, 90));
+    }
+
     @Override
     public Affinity getWeakness() {
 

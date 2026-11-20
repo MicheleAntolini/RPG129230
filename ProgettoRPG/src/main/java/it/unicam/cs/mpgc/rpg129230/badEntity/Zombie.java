@@ -6,4 +6,8 @@ public class Zombie extends Enemy {
         super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
 
+    public Zombie() {
+        super("Zombie", Dice.roll(30, 38), Dice.roll(15, 25), Dice.roll(18, 25), Dice.roll(10, 20));
+    }
+
 }

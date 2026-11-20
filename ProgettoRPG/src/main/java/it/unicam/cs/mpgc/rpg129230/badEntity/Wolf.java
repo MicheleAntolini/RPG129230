@@ -6,4 +6,8 @@ public class Wolf extends Enemy {
         super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
 
+    public Wolf() {
+        super("Wolf", Dice.roll(55, 70), Dice.roll(20, 30), Dice.roll(20, 28), Dice.roll(30, 50));
+    }
+
 }

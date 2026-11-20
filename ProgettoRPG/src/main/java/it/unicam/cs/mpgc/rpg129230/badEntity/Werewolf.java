@@ -8,6 +8,10 @@ public class Werewolf extends Enemy {
         super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
 
+    public Werewolf() {
+        super("Werewolf", Dice.roll(170, 220), Dice.roll(55, 65), Dice.roll(30, 40), Dice.roll(70, 100));
+    }
+
     @Override
     public Affinity getWeakness() {
 

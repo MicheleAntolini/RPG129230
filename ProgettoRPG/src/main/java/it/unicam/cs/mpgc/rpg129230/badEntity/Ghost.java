@@ -6,6 +6,10 @@ public class Ghost extends Enemy {
         super(name, maxHealthPoints, attackPower, defensePower, experienceReward);
     }
 
+    public Ghost() {
+        super("Ghost", Dice.roll(10, 15), Dice.roll(18, 24), 0, Dice.roll(30, 50));
+    }
+
     @Override
     public int getEvasion() {
         return 30;
