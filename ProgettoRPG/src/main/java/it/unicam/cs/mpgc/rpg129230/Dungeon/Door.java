@@ -1,5 +1,6 @@
-package it.unicam.cs.mpgc.rpg129230;
+package it.unicam.cs.mpgc.rpg129230.Dungeon;
 
+import it.unicam.cs.mpgc.rpg129230.Dice;
 import it.unicam.cs.mpgc.rpg129230.Enum.RoomType;
 
 public class Door {

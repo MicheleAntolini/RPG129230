@@ -1,6 +1,8 @@
-package it.unicam.cs.mpgc.rpg129230;
+package it.unicam.cs.mpgc.rpg129230.Dungeon;
 
+import it.unicam.cs.mpgc.rpg129230.Dice;
 import it.unicam.cs.mpgc.rpg129230.Enum.RoomType;
+import it.unicam.cs.mpgc.rpg129230.badEntity.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +49,30 @@ public class Level {
 
     public List<Door> getDoors() {
         return List.copyOf(doors);
+    }
+
+    public Enemy createEnemy() {
+        switch (number) {
+            case 1 -> {
+                if (Dice.roll(1, 2) == 1) {
+                    return new Zombie();
+                }
+                return new Skeleton();
+            }
+            case 2 -> {
+                if (Dice.roll(1, 2) == 1) {
+                    return new Wolf();
+                }
+                return new Ghost();
+            }
+            case 3 -> {
+                if (Dice.roll(1, 2) == 1) {
+                    return new Vampire();
+                }
+                return new Werewolf();
+            }
+            default -> throw new IllegalStateException("Livello non valido: " + number);
+        }
     }
 }
 

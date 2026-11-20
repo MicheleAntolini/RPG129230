@@ -1,6 +1,4 @@
-package it.unicam.cs.mpgc.rpg129230;
-
-import it.unicam.cs.mpgc.rpg129230.item.*;
+package it.unicam.cs.mpgc.rpg129230.item;
 
 import java.util.ArrayList;
 import java.util.List;

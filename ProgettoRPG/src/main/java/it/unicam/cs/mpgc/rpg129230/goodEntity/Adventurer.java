@@ -1,7 +1,8 @@
 package it.unicam.cs.mpgc.rpg129230.goodEntity;
 
 import it.unicam.cs.mpgc.rpg129230.Enum.Affinity;
-import it.unicam.cs.mpgc.rpg129230.Inventory;
+import it.unicam.cs.mpgc.rpg129230.Enum.Stat;
+import it.unicam.cs.mpgc.rpg129230.item.Inventory;
 import it.unicam.cs.mpgc.rpg129230.badEntity.Enemy;
 import it.unicam.cs.mpgc.rpg129230.Entity;
 import it.unicam.cs.mpgc.rpg129230.item.Weapon;
@@ -39,14 +40,30 @@ public abstract class Adventurer extends Entity {
         }
     }
 
-    private void levelUp(){
+    private void levelUp() {
+        while (experience >= XP_TO_LEVEL_UP) {
+            experience -= XP_TO_LEVEL_UP;
+            level++;
 
-        while (this.getExperience() >= XP_TO_LEVEL_UP) {
-            this.level++;
-            this.experience = this.experience - XP_TO_LEVEL_UP;
-            this.attackPower += Dice.roll(4, 9);
-            this.defensePower += Dice.roll(4, 9);
-            this.maxHealthPoints += Dice.roll(10, 20);
+            int healthBonus = Dice.roll(5, 10);
+            maxHealthPoints += healthBonus;
+            healthPoints += healthBonus;
+
+            attackPower += Dice.roll(2, 5);
+            defensePower += Dice.roll(2, 5);
+        }
+    }
+
+    // fontana: aumenta del 10% la statistica scelta dal giocatore (minimo +1)
+    public void useFountain(Stat stat) {
+        switch (stat) {
+            case HEALTH -> {
+                int bonus = Math.max(1, maxHealthPoints * 10 / 100);
+                maxHealthPoints += bonus;
+                healthPoints += bonus;
+            }
+            case ATTACK -> attackPower += Math.max(1, attackPower * 10 / 100);
+            case DEFENSE -> defensePower += Math.max(1, defensePower * 10 / 100);
         }
     }
 
