@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129230.view;
 
 import it.unicam.cs.mpgc.rpg129230.Game;
+import it.unicam.cs.mpgc.rpg129230.SaveManager;
 import it.unicam.cs.mpgc.rpg129230.dungeon.Door;
 import it.unicam.cs.mpgc.rpg129230.dungeon.Level;
 import it.unicam.cs.mpgc.rpg129230.enums.RoomType;
@@ -10,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.util.List;
 
 public class DoorsController {
@@ -88,5 +90,19 @@ public class DoorsController {
     @FXML
     private void onInventory() {
         RpgApp.showScene("Inventory.fxml");
+    }
+
+    @FXML
+    private void onSave() {
+        String message;
+        try {
+            SaveManager.save(game);
+            message = "Game saved!";
+        } catch (IOException e) {
+            message = "Could not save the game: " + e.getMessage();
+        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }

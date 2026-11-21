@@ -122,6 +122,13 @@ public abstract class Adventurer extends Entity {
         return inventory.getRing().getAffinity();
     }
 
+    public Affinity getNecklaceAffinity() {
+        if (inventory.getNecklace() == null) {
+            return null;
+        }
+        return inventory.getNecklace().getAffinity();
+    }
+
     /** Exp necessaria per salire al livello successivo: 100, 150, 200, 250... */
     public int getXpToLevelUp() {
         return 100 + 50 * (level - 1);

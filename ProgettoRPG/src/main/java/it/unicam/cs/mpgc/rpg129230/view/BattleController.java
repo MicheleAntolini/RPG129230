@@ -36,7 +36,7 @@ public class BattleController {
     private void initialize() {
         game = RpgApp.getGame();
         battle = game.getCurrentBattle();
-        log("An enemy " + battle.getEnemy().getName() + " appears!");
+        log("A wild " + battle.getEnemy().getName() + " appears!");
 
         if (!battle.isAdventurerTurn()) {
             log(battle.getEnemy().getName() + " is faster and acts first.");
@@ -45,9 +45,44 @@ public class BattleController {
         refresh();
     }
 
-    // ---------- buttons ----------
+    // ---------- bottoni ----------
 
-    @FXML private void onAttack() { playerTurn(BattleAction.ATTACK, AttackType.BASIC, null); }
+    @FXML
+    private void onAttack() {
+        String basic = "Basic attack";
+        String power = "Power attack (150% damage, 80% hit)";
+        String immobilizing = "Immobilizing attack (50% damage, 70% hit, stuns 2 turns)";
+
+        // si possono scegliere solo gli attacchi pronti
+        List<String> choices = new ArrayList<>();
+        choices.add(basic);
+        if (battle.getPowerCooldown() == 0) {
+            choices.add(power);
+        }
+        if (battle.getImmobilizingCooldown() == 0) {
+            choices.add(immobilizing);
+        }
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>(basic, choices);
+        dialog.setHeaderText("Choose your attack");
+        dialog.setContentText(cooldownText("Power", battle.getPowerCooldown())
+                + "   " + cooldownText("Immobilizing", battle.getImmobilizingCooldown()));
+        Optional<String> result = dialog.showAndWait();
+
+        if (result.isEmpty()) {
+            return; // il giocatore ha premuto Annulla
+        }
+
+        String chosen = result.get();
+        if (chosen.equals(power)) {
+            playerTurn(BattleAction.ATTACK, AttackType.POWER, null);
+        } else if (chosen.equals(immobilizing)) {
+            playerTurn(BattleAction.ATTACK, AttackType.IMMOBILIZING, null);
+        } else {
+            playerTurn(BattleAction.ATTACK, AttackType.BASIC, null);
+        }
+    }
+
     @FXML private void onDefend() { playerTurn(BattleAction.DEFEND, null, null); }
     @FXML private void onDodge()  { playerTurn(BattleAction.DODGE, null, null); }
 
@@ -89,7 +124,7 @@ public class BattleController {
         }
     }
 
-    // ---------- turns ----------
+    // ---------- turni ----------
 
     private void playerTurn(BattleAction action, AttackType attackType, Potion potion) {
         Adventurer hero = game.getHero();
@@ -104,6 +139,9 @@ public class BattleController {
                 int damage = enemyHpBefore - enemy.getHealthPoints();
                 if (damage > 0) {
                     log("You hit " + enemy.getName() + " for " + damage + " damage.");
+                    if (attackType == AttackType.IMMOBILIZING) {
+                        log(enemy.getName() + " is immobilized!");
+                    }
                 } else {
                     log("Your attack misses!");
                 }
@@ -134,14 +172,23 @@ public class BattleController {
         }
     }
 
-    // ---------- screen update ----------
+    // ---------- aggiornamento schermo ----------
 
     private void refresh() {
         Adventurer hero = game.getHero();
         Enemy enemy = battle.getEnemy();
 
-        heroLabel.setText(hero.getName() + "   HP " + hero.getHealthPoints() + "/" + hero.getMaxHealthPoints());
-        enemyLabel.setText(enemy.getName() + "   HP " + enemy.getHealthPoints() + "/" + enemy.getMaxHealthPoints());
+        String heroStatus = "";
+        if (battle.isShieldActive()) {
+            heroStatus += "  [Shield]";
+        }
+        if (battle.hasBlessedBonus()) {
+            heroStatus += "  [Blessed +20%]";
+        }
+        heroLabel.setText(hero.getName() + "   HP " + hero.getHealthPoints() + "/" + hero.getMaxHealthPoints() + heroStatus);
+
+        String enemyStatus = battle.isEnemyStunned() ? "  [Immobilized]" : "";
+        enemyLabel.setText(enemy.getName() + "   HP " + enemy.getHealthPoints() + "/" + enemy.getMaxHealthPoints() + enemyStatus);
 
         boolean over = battle.isBattleOver();
         attackButton.setDisable(over);
@@ -157,6 +204,13 @@ public class BattleController {
                 log("You have been defeated...");
             }
         }
+    }
+
+    private String cooldownText(String name, int cooldown) {
+        if (cooldown == 0) {
+            return name + ": ready";
+        }
+        return name + ": ready in " + cooldown + " turns";
     }
 
     private void log(String message) {

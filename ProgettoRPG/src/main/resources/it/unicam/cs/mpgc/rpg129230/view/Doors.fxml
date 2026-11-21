@@ -16,6 +16,7 @@
             <Button fx:id="door2Button" mnemonicParsing="false" onAction="#onDoor2" text="Button" />
             <Button fx:id="bossButton" mnemonicParsing="false" onAction="#onBoss" text="Affronta il Boss" />
             <Button mnemonicParsing="false" onAction="#onInventory" text="Inventory" />
+            <Button mnemonicParsing="false" onAction="#onSave" text="Save" />
          </children>
       </HBox>
    </children>
