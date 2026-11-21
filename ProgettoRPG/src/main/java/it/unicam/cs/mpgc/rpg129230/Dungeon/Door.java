@@ -3,7 +3,9 @@ package it.unicam.cs.mpgc.rpg129230.dungeon;
 import it.unicam.cs.mpgc.rpg129230.Dice;
 import it.unicam.cs.mpgc.rpg129230.enums.RoomType;
 
-public class Door {
+import java.io.Serializable;
+
+public class Door implements Serializable {
 
     private int treasure;
     private int fountain;

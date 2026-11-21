@@ -10,6 +10,6 @@ public abstract class Weapon extends EquippableItem {
 
     public int getBonusDamage() {
 
-        return super.getLevel() * 10;
+        return super.getLevel() * 15;
     }
 }

@@ -6,10 +6,11 @@ import it.unicam.cs.mpgc.rpg129230.bossentity.Demon;
 import it.unicam.cs.mpgc.rpg129230.bossentity.FallenAngel;
 import it.unicam.cs.mpgc.rpg129230.bossentity.Lich;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dungeon {
+public class Dungeon implements Serializable {
 
     private static final int LEVELS = 3;
 

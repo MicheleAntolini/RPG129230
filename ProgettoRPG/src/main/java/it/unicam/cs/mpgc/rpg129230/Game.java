@@ -9,11 +9,13 @@ import it.unicam.cs.mpgc.rpg129230.enums.Stat;
 import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.item.Item;
 
+import java.io.Serializable;
+
 /**
  * Rappresenta una partita: l'eroe, il dungeon e la battaglia in corso.
  * L'interfaccia (console o SceneBuilder) parla solo con questa classe.
  */
-public class Game {
+public class Game implements Serializable {
 
     private final Adventurer hero;
     private final Dungeon dungeon;

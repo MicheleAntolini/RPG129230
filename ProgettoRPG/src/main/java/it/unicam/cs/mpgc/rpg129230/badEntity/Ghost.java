@@ -7,7 +7,7 @@ public class Ghost extends Enemy {
     }
 
     public Ghost() {
-        super("Ghost", Dice.roll(10, 15), Dice.roll(18, 24), 0, Dice.roll(30, 50));
+        super("Ghost", Dice.roll(10, 15), Dice.roll(18, 24), 0, Dice.roll(200, 220));
     }
 
     @Override

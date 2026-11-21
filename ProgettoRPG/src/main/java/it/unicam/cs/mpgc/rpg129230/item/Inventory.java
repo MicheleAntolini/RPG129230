@@ -1,9 +1,10 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory {
+public class Inventory implements Serializable {
 
     private Ring ring;
     private Necklace necklace;

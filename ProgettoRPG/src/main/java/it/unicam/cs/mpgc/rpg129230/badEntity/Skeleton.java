@@ -7,6 +7,6 @@ public class Skeleton extends Enemy {
     }
 
     public Skeleton() {
-        super("Skeleton", Dice.roll(25, 32), Dice.roll(10, 15), Dice.roll(15, 20), Dice.roll(20, 40));
+        super("Skeleton", Dice.roll(25, 32), Dice.roll(10, 15), Dice.roll(15, 20), Dice.roll(75, 90));
     }
 }

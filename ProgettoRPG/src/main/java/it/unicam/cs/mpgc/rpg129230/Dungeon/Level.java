@@ -4,10 +4,11 @@ import it.unicam.cs.mpgc.rpg129230.Dice;
 import it.unicam.cs.mpgc.rpg129230.enums.RoomType;
 import it.unicam.cs.mpgc.rpg129230.badentity.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Level {
+public class Level implements Serializable {
 
     private static final int STEPS = 4;       // stanze per livello
     private static final int DOORS = 3;       // porte tra cui scegliere

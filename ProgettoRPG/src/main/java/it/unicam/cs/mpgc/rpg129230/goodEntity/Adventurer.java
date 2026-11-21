@@ -13,7 +13,6 @@ public abstract class Adventurer extends Entity {
 
     private int level;
     private int experience = 0;
-    private static final int XP_TO_LEVEL_UP = 100;
     private final Inventory inventory = new Inventory();
 
     protected Adventurer(String name, int maxHealthPoints, int attackPower, int defensePower, int level, int experience) {
@@ -43,29 +42,37 @@ public abstract class Adventurer extends Entity {
 
     /** Equipaggia una collana, togliendo il bonus vita di quella vecchia e aggiungendo il nuovo. */
     public void equipNecklace(Necklace newNecklace) {
-        Necklace old = inventory.getNecklace();
-        if (old != null) {
-            maxHealthPoints -= old.getHealthBoost();
-            if (healthPoints > maxHealthPoints) {
-                healthPoints = maxHealthPoints;
-            }
+        int oldBonus = 0;
+        if (inventory.getNecklace() != null) {
+            oldBonus = inventory.getNecklace().getHealthBoost();
         }
+        int difference = newNecklace.getHealthBoost() - oldBonus;
+
         inventory.equipNecklace(newNecklace);
-        maxHealthPoints += newNecklace.getHealthBoost();
-        healthPoints += newNecklace.getHealthBoost();
+
+        maxHealthPoints += difference;
+        healthPoints += difference;
+
+        // la vita resta sempre tra 1 e il massimo
+        if (healthPoints > maxHealthPoints) {
+            healthPoints = maxHealthPoints;
+        }
+        if (healthPoints < 1) {
+            healthPoints = 1;
+        }
     }
 
     private void levelUp() {
-        while (experience >= XP_TO_LEVEL_UP) {
-            experience -= XP_TO_LEVEL_UP;
+        while (experience >= getXpToLevelUp()) {
+            experience -= getXpToLevelUp();
             level++;
 
-            int healthBonus = Dice.roll(5, 10);
+            int healthBonus = Dice.roll(10, 20);
             maxHealthPoints += healthBonus;
-            healthPoints += healthBonus;
+            healthPoints = maxHealthPoints;
 
-            attackPower += Dice.roll(2, 5);
-            defensePower += Dice.roll(2, 5);
+            attackPower += Dice.roll(8, 15);
+            defensePower += Dice.roll(8, 15);
         }
     }
 
@@ -113,6 +120,11 @@ public abstract class Adventurer extends Entity {
             return null;
         }
         return inventory.getRing().getAffinity();
+    }
+
+    /** Exp necessaria per salire al livello successivo: 100, 150, 200, 250... */
+    public int getXpToLevelUp() {
+        return 100 + 50 * (level - 1);
     }
 
     public int getExperience() {

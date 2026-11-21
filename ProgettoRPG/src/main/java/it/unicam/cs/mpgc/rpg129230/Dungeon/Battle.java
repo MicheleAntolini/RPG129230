@@ -8,7 +8,9 @@ import it.unicam.cs.mpgc.rpg129230.bossentity.Boss;
 import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.item.Potion;
 
-public class Battle {
+import java.io.Serializable;
+
+public class Battle implements Serializable {
 
     private final Adventurer adventurer;
     private final Enemy enemy;

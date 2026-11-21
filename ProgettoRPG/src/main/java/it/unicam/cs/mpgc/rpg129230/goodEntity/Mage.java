@@ -11,8 +11,8 @@ public class Mage extends Adventurer {
     }
 
     public Mage() {
-        super("Mage", Dice.roll(40, 70), Dice.roll(25, 32), Dice.roll(5, 10), 1, 0);
-        Weapon wand = new Wand("Bacchetta", 1, null);
+        super("Mage", Dice.roll(70, 100), Dice.roll(25, 32), Dice.roll(10, 15), 1, 0);
+        Weapon wand = new Wand("Wand", 1, null);
         getInventory().addItem(wand);
         equipWeapon(wand);
     }

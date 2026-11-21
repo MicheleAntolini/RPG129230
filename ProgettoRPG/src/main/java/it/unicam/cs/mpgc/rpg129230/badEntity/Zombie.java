@@ -7,7 +7,7 @@ public class Zombie extends Enemy {
     }
 
     public Zombie() {
-        super("Zombie", Dice.roll(30, 38), Dice.roll(15, 25), Dice.roll(18, 25), Dice.roll(10, 20));
+        super("Zombie", Dice.roll(30, 38), Dice.roll(15, 25), Dice.roll(18, 25), Dice.roll(70, 85));
     }
 
 }

@@ -10,6 +10,6 @@ public class Ring extends EquippableItem {
 
     public int getBonusDefense() {
 
-        return super.getLevel() * 5;
+        return super.getLevel() * 15;
     }
 }

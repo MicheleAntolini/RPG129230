@@ -13,7 +13,7 @@ public class Lich extends Boss {
     }
 
     public Lich() {
-        super("Lich", 750, Dice.roll(75, 90), Dice.roll(55, 70), 10000);
+        super("Lich", 350, Dice.roll(35, 45), Dice.roll(45, 60), 10000);
     }
 
     @Override

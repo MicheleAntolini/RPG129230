@@ -13,7 +13,7 @@ public class Demon extends Boss {
     }
 
     public Demon(){
-        super("Demon", 800, Dice.roll(65, 85), Dice.roll(60, 75), 10000);
+        super("Demon", 400, Dice.roll(65, 75), Dice.roll(45, 60), 10000);
     }
 
     @Override

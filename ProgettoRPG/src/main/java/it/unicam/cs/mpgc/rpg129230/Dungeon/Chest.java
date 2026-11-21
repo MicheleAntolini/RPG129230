@@ -16,18 +16,18 @@ public class Chest {
         switch (Dice.roll(1, 4)) {
             case 1 -> {
                 if (hero instanceof Knight) {
-                    return new Sword("Spada " + affinity, level, affinity);
+                    return new Sword("Sword " + affinity, level, affinity);
                 }
-                return new Wand("Bacchetta " + affinity, level, affinity);
+                return new Wand("Wand " + affinity, level, affinity);
             }
             case 2 -> {
-                return new Ring("Anello " + affinity, level, affinity);
+                return new Ring("Ring " + affinity, level, affinity);
             }
             case 3 -> {
-                return new Necklace("Collana " + affinity, level, affinity);
+                return new Necklace("Necklace " + affinity, level, affinity);
             }
             case 4 -> {
-                return new Potion("Pozione", level);
+                return new Potion("Potion", level);
             }
             default -> throw new IllegalStateException("Tipo di oggetto non valido");
         }

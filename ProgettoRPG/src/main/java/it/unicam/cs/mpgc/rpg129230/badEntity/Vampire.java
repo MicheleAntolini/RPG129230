@@ -9,7 +9,7 @@ public class Vampire extends Enemy {
     }
 
     public Vampire() {
-        super("Vampire", Dice.roll(140, 180), Dice.roll(55, 65), Dice.roll(30, 40), Dice.roll(70, 90));
+        super("Vampire", Dice.roll(120, 160), Dice.roll(35, 45), Dice.roll(30, 40), Dice.roll(200, 250));
     }
 
     @Override

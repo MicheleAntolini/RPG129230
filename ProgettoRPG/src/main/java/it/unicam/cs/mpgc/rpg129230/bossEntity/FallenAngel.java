@@ -11,7 +11,7 @@ public class FallenAngel extends Boss {
     }
 
     public FallenAngel() {
-        super("Fallen Angel", 650, Dice.roll(60, 75), Dice.roll(80, 90), 10000);
+        super("Fallen Angel", 300, Dice.roll(60, 75), Dice.roll(55, 70), 10000);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package it.unicam.cs.mpgc.rpg129230;
 
-public abstract class Entity {
+import java.io.Serializable;
+
+public abstract class Entity implements Serializable {
 
     private String name;
     protected int maxHealthPoints;

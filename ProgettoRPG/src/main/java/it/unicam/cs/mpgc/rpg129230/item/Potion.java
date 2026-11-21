@@ -8,6 +8,6 @@ public class Potion extends Item{
 
     public int getHealthRestore() {
 
-        return 5 + super.getLevel() * 10;
+        return 5 + super.getLevel() * 15;
     }
 }

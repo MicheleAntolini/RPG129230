@@ -10,6 +10,6 @@ public class Necklace extends EquippableItem {
 
     public int getHealthBoost() {
 
-        return 10 + super.getLevel() * 10;
+        return 10 + super.getLevel() * 15;
     }
 }
