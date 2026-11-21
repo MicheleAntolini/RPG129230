@@ -50,8 +50,8 @@ public class BattleController {
     @FXML
     private void onAttack() {
         String basic = "Basic attack";
-        String power = "Power attack (150% damage, 80% hit)";
-        String immobilizing = "Immobilizing attack (50% damage, 70% hit, stuns 2 turns)";
+        String power = "Power attack (180% damage, 70% hit)";
+        String immobilizing = "Immobilizing attack (50% damage, 60% hit, stuns 2 turns)";
 
         // si possono scegliere solo gli attacchi pronti
         List<String> choices = new ArrayList<>();
@@ -140,7 +140,7 @@ public class BattleController {
                 if (damage > 0) {
                     log("You hit " + enemy.getName() + " for " + damage + " damage.");
                     if (attackType == AttackType.IMMOBILIZING) {
-                        log(enemy.getName() + " is immobilized!");
+                        log(enemy.getName() + " is stunned!");
                     }
                 } else {
                     log("Your attack misses!");
@@ -187,7 +187,7 @@ public class BattleController {
         }
         heroLabel.setText(hero.getName() + "   HP " + hero.getHealthPoints() + "/" + hero.getMaxHealthPoints() + heroStatus);
 
-        String enemyStatus = battle.isEnemyStunned() ? "  [Immobilized]" : "";
+        String enemyStatus = battle.isEnemyStunned() ? "  [Stunned]" : "";
         enemyLabel.setText(enemy.getName() + "   HP " + enemy.getHealthPoints() + "/" + enemy.getMaxHealthPoints() + enemyStatus);
 
         boolean over = battle.isBattleOver();

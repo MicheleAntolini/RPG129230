@@ -99,10 +99,10 @@ public class Battle implements Serializable {
                     throw new IllegalStateException("Power attack is not ready");
                 }
                 powerCooldown = POWER_COOLDOWN;
-                if (!hitsEnemy(80)) {
+                if (!hitsEnemy(70)) {
                     return;
                 }
-                int damage = calculateDamage(adventurer.getTotalAttack(), enemy.getDefensePower()) * 150 / 100;
+                int damage = calculateDamage(adventurer.getTotalAttack(), enemy.getDefensePower()) * 180 / 100;
                 enemy.takeDamage(damage, adventurer.getWeaponAffinity());
             }
             case IMMOBILIZING -> {
@@ -110,7 +110,7 @@ public class Battle implements Serializable {
                     throw new IllegalStateException("Immobilizing attack is not ready");
                 }
                 immobilizingCooldown = IMMOBILIZING_COOLDOWN;
-                if (!hitsEnemy(70)) {
+                if (!hitsEnemy(60)) {
                     return;
                 }
                 int damage = calculateDamage(adventurer.getTotalAttack(), enemy.getDefensePower()) * 50 / 100;
@@ -165,9 +165,10 @@ public class Battle implements Serializable {
             damage = damage * 70 / 100;
         }
 
-        // nemico immobilizzato: colpisce con metà forza
+        // nemico stordito: salta il turno
         if (enemyStunnedTurns > 0) {
-            damage = damage * 50 / 100;
+            endEnemyTurn();
+            return;
         }
 
         if (enemy instanceof Boss boss
