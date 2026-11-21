@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
 import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 
 /**
  * Anello: aumenta la difesa dell'eroe. Se la sua affinità è la debolezza del boss,
@@ -25,5 +26,16 @@ public class Ring extends EquippableItem {
     public int getBonusDefense() {
 
         return super.getLevel() * 15;
+    }
+
+    @Override
+    public boolean equipOn(Adventurer hero) {
+        hero.getInventory().equipRing(this);
+        return true;
+    }
+
+    @Override
+    public String getBonusDescription() {
+        return " +" + getBonusDefense() + " DEF";
     }
 }

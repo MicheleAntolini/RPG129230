@@ -1,6 +1,8 @@
 package it.unicam.cs.mpgc.rpg129230.dungeon;
 
 import it.unicam.cs.mpgc.rpg129230.Dice;
+import it.unicam.cs.mpgc.rpg129230.DiceRoller;
+import it.unicam.cs.mpgc.rpg129230.RandomSource;
 import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
 import it.unicam.cs.mpgc.rpg129230.enums.AttackType;
 import it.unicam.cs.mpgc.rpg129230.enums.BattleAction;
@@ -27,6 +29,7 @@ public class Battle implements Serializable {
     private static final int IMMOBILIZING_COOLDOWN = 4;
     private static final int STUN_TURNS = 2;
 
+    private final RandomSource random;
     private final Adventurer adventurer;
     private final Enemy enemy;
     private boolean defense;
@@ -41,14 +44,26 @@ public class Battle implements Serializable {
     private int enemyStunnedTurns;      // turni in cui il nemico è ancora stordito
 
     /**
-     * Crea una battaglia e tira subito l'iniziativa.
+     * Crea una battaglia con i dadi normali e tira subito l'iniziativa.
      *
      * @param adventurer l'eroe
      * @param enemy      il nemico da affrontare
      */
     public Battle(Adventurer adventurer, Enemy enemy) {
+        this(adventurer, enemy, new DiceRoller());
+    }
+
+    /**
+     * Crea una battaglia con una fonte di casualità scelta da fuori (utile per i test).
+     *
+     * @param adventurer l'eroe
+     * @param enemy      il nemico da affrontare
+     * @param random     la fonte dei numeri casuali
+     */
+    public Battle(Adventurer adventurer, Enemy enemy, RandomSource random) {
         this.adventurer = adventurer;
         this.enemy = enemy;
+        this.random = random;
         initiative();
     }
 
@@ -61,8 +76,8 @@ public class Battle implements Serializable {
         int enemyRoll;
 
         do {
-            adventurerRoll = Dice.roll(1, 10);
-            enemyRoll = Dice.roll(1, 10);
+            adventurerRoll = random.roll(1, 10);
+            enemyRoll = random.roll(1, 10);
         } while (adventurerRoll == enemyRoll);
 
         if (adventurerRoll > enemyRoll) {
@@ -170,10 +185,10 @@ public class Battle implements Serializable {
      */
     private boolean hitsEnemy(int hitChance) {
         // il nemico può schivare, ma non se è stordito
-        if (enemyStunnedTurns == 0 && Dice.roll(1, 100) <= enemy.getEvasion()) {
+        if (enemyStunnedTurns == 0 && random.roll(1, 100) <= enemy.getEvasion()) {
             return false;
         }
-        return Dice.roll(1, 100) <= hitChance;
+        return random.roll(1, 100) <= hitChance;
     }
 
     /**
@@ -183,7 +198,7 @@ public class Battle implements Serializable {
      */
     private void applyNecklaceEffect() {
         Affinity affinity = adventurer.getNecklaceAffinity();
-        if (affinity == null || Dice.roll(1, 2) == 1) {
+        if (affinity == null || random.roll(1, 2) == 1) {
             return;
         }
         switch (affinity) {
@@ -238,7 +253,7 @@ public class Battle implements Serializable {
             damage = damage * 75 / 100;
         }
 
-        if (dodge && Dice.roll(1, 10) <= 3) {
+        if (dodge && random.roll(1, 10) <= 3) {
             // colpo mancato
         } else {
             adventurer.takeDamage(damage);

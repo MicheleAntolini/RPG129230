@@ -1,7 +1,8 @@
 package it.unicam.cs.mpgc.rpg129230.view;
 
 import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
-import it.unicam.cs.mpgc.rpg129230.item.*;
+import it.unicam.cs.mpgc.rpg129230.item.Inventory;
+import it.unicam.cs.mpgc.rpg129230.item.Item;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -14,6 +15,8 @@ import java.util.List;
  * <p>
  * Mostra gli oggetti equipaggiati, le statistiche totali dell'eroe e il contenuto
  * dello zaino; il giocatore seleziona un oggetto dallo zaino e lo equipaggia.
+ * Non serve sapere di che tipo è l'oggetto: ognuno sa da solo come equipaggiarsi
+ * e come descriversi (polimorfismo).
  */
 public class InventoryController {
 
@@ -65,22 +68,12 @@ public class InventoryController {
         if (item == null) {
             return "none";
         }
-        String text = item.getName() + " (lv. " + item.getLevel() + ")";
-        if (item instanceof Weapon w) {
-            text += " +" + w.getBonusDamage() + " ATK";
-        } else if (item instanceof Ring r) {
-            text += " +" + r.getBonusDefense() + " DEF";
-        } else if (item instanceof Necklace n) {
-            text += " +" + n.getHealthBoost() + " HP max";
-        } else if (item instanceof Potion p) {
-            text += " heals " + p.getHealthRestore() + " HP";
-        }
-        return text;
+        return item.getName() + " (lv. " + item.getLevel() + ")" + item.getBonusDescription();
     }
 
     /**
-     * Bottone "Equip": equipaggia l'oggetto selezionato nello zaino, usando il metodo
-     * giusto in base al tipo di oggetto.
+     * Bottone "Equip": equipaggia l'oggetto selezionato nello zaino.
+     * Ogni oggetto sa da solo come equipaggiarsi.
      */
     @FXML
     private void onEquip() {
@@ -91,23 +84,9 @@ public class InventoryController {
         }
 
         Item item = backpack.get(index);
-        Inventory inv = hero.getInventory();
-
-        if (item instanceof Weapon w) {
-            if (!hero.canEquip(w)) {
-                showMessage("Your class can't use this weapon.");
-                return;
-            }
-            hero.equipWeapon(w);
-        } else if (item instanceof Ring r) {
-            inv.equipRing(r);
-        } else if (item instanceof Necklace n) {
-            hero.equipNecklace(n);
-        } else if (item instanceof Potion p) {
-            if (!inv.equipPotion(p)) {
-                showMessage("Your potion slots are full.");
-                return;
-            }
+        if (!item.equipOn(hero)) {
+            showMessage("You can't equip this item right now.");
+            return;
         }
         refresh();
     }

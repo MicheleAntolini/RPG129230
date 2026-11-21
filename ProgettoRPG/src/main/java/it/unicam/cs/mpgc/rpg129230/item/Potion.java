@@ -1,5 +1,7 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
+
 /**
  * Pozione di cura: si beve in battaglia e si consuma. Non ha affinità.
  */
@@ -21,5 +23,18 @@ public class Potion extends Item{
     public int getHealthRestore() {
 
         return 5 + super.getLevel() * 15;
+    }
+
+    /**
+     * Mette la pozione nello slot delle pozioni, se c'è posto.
+     */
+    @Override
+    public boolean equipOn(Adventurer hero) {
+        return hero.getInventory().equipPotion(this);
+    }
+
+    @Override
+    public String getBonusDescription() {
+        return " heals " + getHealthRestore() + " HP";
     }
 }

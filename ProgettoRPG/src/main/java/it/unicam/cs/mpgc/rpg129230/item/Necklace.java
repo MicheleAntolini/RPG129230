@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
 import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 
 /**
  * Collana: aumenta la vita massima dell'eroe. In più, in base all'affinità, ha un
@@ -26,5 +27,16 @@ public class Necklace extends EquippableItem {
     public int getHealthBoost() {
 
         return 10 + super.getLevel() * 15;
+    }
+
+    @Override
+    public boolean equipOn(Adventurer hero) {
+        hero.equipNecklace(this);
+        return true;
+    }
+
+    @Override
+    public String getBonusDescription() {
+        return " +" + getHealthBoost() + " HP max";
     }
 }

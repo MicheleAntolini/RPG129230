@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
 import it.unicam.cs.mpgc.rpg129230.enums.Affinity;
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 
 /**
  * Un'arma: aumenta l'attacco dell'eroe.
@@ -27,5 +28,22 @@ public abstract class Weapon extends EquippableItem {
     public int getBonusDamage() {
 
         return super.getLevel() * 15;
+    }
+
+    /**
+     * Equipaggia l'arma, solo se la classe dell'eroe può usarla.
+     */
+    @Override
+    public boolean equipOn(Adventurer hero) {
+        if (!hero.canEquip(this)) {
+            return false;
+        }
+        hero.equipWeapon(this);
+        return true;
+    }
+
+    @Override
+    public String getBonusDescription() {
+        return " +" + getBonusDamage() + " ATK";
     }
 }

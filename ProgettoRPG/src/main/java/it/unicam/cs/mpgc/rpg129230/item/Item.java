@@ -1,5 +1,7 @@
 package it.unicam.cs.mpgc.rpg129230.item;
 
+import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
+
 import java.io.Serializable;
 
 /**
@@ -44,4 +46,17 @@ public abstract class Item implements Serializable {
     public int getLevel() {
         return level;
     }
+
+    /**
+     * Equipaggia questo oggetto sull'eroe, nel modo giusto per il suo tipo.
+     *
+     * @param hero l'eroe che lo equipaggia
+     * @return {@code true} se l'oggetto è stato equipaggiato, {@code false} se non è possibile
+     */
+    public abstract boolean equipOn(Adventurer hero);
+
+    /**
+     * @return una breve descrizione del bonus dell'oggetto, da mostrare nell'inventario
+     */
+    public abstract String getBonusDescription();
 }
