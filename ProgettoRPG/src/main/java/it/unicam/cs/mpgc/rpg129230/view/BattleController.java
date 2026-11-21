@@ -18,6 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Controller della schermata di battaglia (Battle.fxml).
+ * <p>
+ * Ogni clic su un bottone d'azione corrisponde a un turno completo: prima agisce
+ * l'eroe, poi (se la battaglia non è finita) il nemico. Il racconto della battaglia
+ * viene scritto nel riquadro di testo confrontando la vita prima e dopo ogni turno.
+ * La logica vera e propria sta in {@link Battle}: qui si gestiscono solo bottoni e scritte.
+ */
 public class BattleController {
 
     @FXML private Label heroLabel;
@@ -32,6 +40,10 @@ public class BattleController {
     private Game game;
     private Battle battle;
 
+    /**
+     * Chiamato da JavaFX appena la schermata è caricata. Se il nemico ha vinto
+     * l'iniziativa, lo fa agire subito.
+     */
     @FXML
     private void initialize() {
         game = RpgApp.getGame();
@@ -47,11 +59,15 @@ public class BattleController {
 
     // ---------- bottoni ----------
 
+    /**
+     * Bottone "Attack": apre una finestrella per scegliere il tipo di attacco.
+     * Gli attacchi speciali in ricarica non compaiono tra le scelte.
+     */
     @FXML
     private void onAttack() {
         String basic = "Basic attack";
         String power = "Power attack (180% damage, 70% hit)";
-        String immobilizing = "Immobilizing attack (50% damage, 60% hit, stuns 2 turns)";
+        String immobilizing = "Stun attack (50% damage, 60% hit, enemy skips 2 turns)";
 
         // si possono scegliere solo gli attacchi pronti
         List<String> choices = new ArrayList<>();
@@ -83,9 +99,16 @@ public class BattleController {
         }
     }
 
+    /** Bottone "Defend": l'eroe si difende. */
     @FXML private void onDefend() { playerTurn(BattleAction.DEFEND, null, null); }
+
+    /** Bottone "Dodge": l'eroe si prepara a schivare. */
     @FXML private void onDodge()  { playerTurn(BattleAction.DODGE, null, null); }
 
+    /**
+     * Bottone "Potion": apre una finestrella per scegliere quale pozione bere
+     * tra quelle nello slot.
+     */
     @FXML
     private void onPotion() {
         List<Potion> potions = game.getHero().getInventory().getPotionSlot();
@@ -109,6 +132,10 @@ public class BattleController {
         }
     }
 
+    /**
+     * Bottone "Continue" (a battaglia finita): chiude la battaglia e decide la schermata
+     * successiva, nell'ordine: sconfitta, vittoria sul boss, oppure ritorno alle porte.
+     */
     @FXML
     private void onContinue() {
         game.finishBattle();
@@ -126,6 +153,14 @@ public class BattleController {
 
     // ---------- turni ----------
 
+    /**
+     * Esegue un turno completo: azione dell'eroe, racconto di cosa è successo,
+     * poi turno del nemico (se la battaglia non è finita) e aggiornamento dello schermo.
+     *
+     * @param action     l'azione scelta
+     * @param attackType il tipo di attacco (solo per ATTACK)
+     * @param potion     la pozione scelta (solo per USE_ITEM)
+     */
     private void playerTurn(BattleAction action, AttackType attackType, Potion potion) {
         Adventurer hero = game.getHero();
         Enemy enemy = battle.getEnemy();
@@ -157,6 +192,9 @@ public class BattleController {
         refresh();
     }
 
+    /**
+     * Esegue il turno del nemico e scrive nel racconto quanti danni ha fatto.
+     */
     private void enemyTurn() {
         Adventurer hero = game.getHero();
         Enemy enemy = battle.getEnemy();
@@ -174,6 +212,10 @@ public class BattleController {
 
     // ---------- aggiornamento schermo ----------
 
+    /**
+     * Aggiorna vite ed effetti attivi; a battaglia finita disattiva le azioni
+     * e mostra il bottone "Continue".
+     */
     private void refresh() {
         Adventurer hero = game.getHero();
         Enemy enemy = battle.getEnemy();
@@ -206,6 +248,13 @@ public class BattleController {
         }
     }
 
+    /**
+     * Scritta che dice se un attacco speciale è pronto o quanti turni mancano.
+     *
+     * @param name     il nome dell'attacco
+     * @param cooldown i turni di ricarica rimasti
+     * @return la scritta da mostrare
+     */
     private String cooldownText(String name, int cooldown) {
         if (cooldown == 0) {
             return name + ": ready";
@@ -213,10 +262,21 @@ public class BattleController {
         return name + ": ready in " + cooldown + " turns";
     }
 
+    /**
+     * Aggiunge una riga al racconto della battaglia.
+     *
+     * @param message la riga da aggiungere
+     */
     private void log(String message) {
         logArea.appendText(message + "\n");
     }
 
+    /**
+     * Mostra un messaggio in una finestrella.
+     *
+     * @param header il titolo
+     * @param text   il testo
+     */
     private void showMessage(String header, String text) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, text);
         alert.setHeaderText(header);

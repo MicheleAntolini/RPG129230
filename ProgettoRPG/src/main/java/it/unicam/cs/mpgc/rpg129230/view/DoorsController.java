@@ -14,6 +14,12 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Controller della schermata delle porte (Doors.fxml), il "centro" del gioco.
+ * <p>
+ * Mostra livello, stanza e statistiche dell'eroe, e le 3 porte con le loro probabilità.
+ * Da qui si apre una porta, si affronta il boss, si va all'inventario o si salva.
+ */
 public class DoorsController {
 
     @FXML private Label levelLabel;
@@ -25,12 +31,19 @@ public class DoorsController {
 
     private Game game;
 
+    /**
+     * Chiamato da JavaFX appena la schermata è caricata: prende la partita e aggiorna le scritte.
+     */
     @FXML
     private void initialize() {
         game = RpgApp.getGame();
         refresh();
     }
 
+    /**
+     * Aggiorna tutte le scritte della schermata. Se è il momento del boss
+     * nasconde le porte e mostra il bottone del boss.
+     */
     private void refresh() {
         Adventurer hero = game.getHero();
         heroLabel.setText(hero.getName() + " - Level " + hero.getLevel()
@@ -62,10 +75,21 @@ public class DoorsController {
         }
     }
 
+    /** Bottone della prima porta. */
     @FXML private void onDoor0() { openDoor(0); }
+
+    /** Bottone della seconda porta. */
     @FXML private void onDoor1() { openDoor(1); }
+
+    /** Bottone della terza porta. */
     @FXML private void onDoor2() { openDoor(2); }
 
+    /**
+     * Apre la porta scelta e, in base alla stanza, passa alla battaglia, alla fontana
+     * oppure mostra l'oggetto trovato nello scrigno.
+     *
+     * @param index la porta scelta (0, 1 o 2)
+     */
     private void openDoor(int index) {
         RoomType room = game.enterRoom(index);
         switch (room) {
@@ -81,17 +105,26 @@ public class DoorsController {
         }
     }
 
+    /**
+     * Bottone "Face the boss": fa partire la battaglia finale.
+     */
     @FXML
     private void onBoss() {
         game.startBossBattle();
         RpgApp.showScene("Battle.fxml");
     }
 
+    /**
+     * Bottone "Inventory": apre la schermata dell'inventario.
+     */
     @FXML
     private void onInventory() {
         RpgApp.showScene("Inventory.fxml");
     }
 
+    /**
+     * Bottone "Save": salva la partita e mostra un messaggio con l'esito.
+     */
     @FXML
     private void onSave() {
         String message;

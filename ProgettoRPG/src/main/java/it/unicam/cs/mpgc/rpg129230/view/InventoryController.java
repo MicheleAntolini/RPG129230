@@ -9,6 +9,12 @@ import javafx.scene.control.ListView;
 
 import java.util.List;
 
+/**
+ * Controller della schermata dell'inventario (Inventory.fxml).
+ * <p>
+ * Mostra gli oggetti equipaggiati, le statistiche totali dell'eroe e il contenuto
+ * dello zaino; il giocatore seleziona un oggetto dallo zaino e lo equipaggia.
+ */
 public class InventoryController {
 
     @FXML private Label equippedLabel;
@@ -17,12 +23,18 @@ public class InventoryController {
     private Adventurer hero;
     private List<Item> backpack;   // gli oggetti, nello stesso ordine della lista a schermo
 
+    /**
+     * Chiamato da JavaFX appena la schermata è caricata.
+     */
     @FXML
     private void initialize() {
         hero = RpgApp.getGame().getHero();
         refresh();
     }
 
+    /**
+     * Aggiorna la parte con gli oggetti equipaggiati e la lista dello zaino.
+     */
     private void refresh() {
         Inventory inv = hero.getInventory();
 
@@ -43,7 +55,12 @@ public class InventoryController {
         }
     }
 
-    /** Trasforma un oggetto in una scritta da mostrare. */
+    /**
+     * Trasforma un oggetto in una scritta da mostrare, con il suo bonus.
+     *
+     * @param item l'oggetto (può essere {@code null})
+     * @return la descrizione, oppure "none" se l'oggetto è {@code null}
+     */
     private String describe(Item item) {
         if (item == null) {
             return "none";
@@ -61,6 +78,10 @@ public class InventoryController {
         return text;
     }
 
+    /**
+     * Bottone "Equip": equipaggia l'oggetto selezionato nello zaino, usando il metodo
+     * giusto in base al tipo di oggetto.
+     */
     @FXML
     private void onEquip() {
         int index = backpackList.getSelectionModel().getSelectedIndex();
@@ -91,11 +112,19 @@ public class InventoryController {
         refresh();
     }
 
+    /**
+     * Bottone "Back": torna alla schermata delle porte.
+     */
     @FXML
     private void onBack() {
         RpgApp.showScene("Doors.fxml");
     }
 
+    /**
+     * Mostra un messaggio in una finestrella.
+     *
+     * @param text il testo del messaggio
+     */
     private void showMessage(String text) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, text);
         alert.setHeaderText(null);

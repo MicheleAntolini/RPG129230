@@ -9,11 +9,22 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 
+/**
+ * L'applicazione JavaFX: gestisce la finestra del gioco e il passaggio da una schermata all'altra.
+ * <p>
+ * Tiene anche la partita in corso, così tutti i controller possono recuperarla
+ * con {@link #getGame()}.
+ */
 public class RpgApp extends Application {
 
     private static Stage stage;   // la finestra
     private static Game game;     // la partita in corso
 
+    /**
+     * Chiamato da JavaFX all'avvio: apre la finestra con il menu principale.
+     *
+     * @param primaryStage la finestra creata da JavaFX
+     */
     @Override
     public void start(Stage primaryStage) {
         stage = primaryStage;
@@ -22,7 +33,12 @@ public class RpgApp extends Application {
         stage.show();
     }
 
-    /** Carica un file .fxml e lo mostra nella finestra. */
+    /**
+     * Carica una schermata creata con SceneBuilder e la mostra nella finestra.
+     *
+     * @param fxml il nome del file .fxml (nella cartella resources/.../view)
+     * @throws UncheckedIOException se il file non esiste o contiene errori
+     */
     public static void showScene(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(RpgApp.class.getResource(fxml));
@@ -32,10 +48,18 @@ public class RpgApp extends Application {
         }
     }
 
+    /**
+     * @return la partita in corso
+     */
     public static Game getGame() {
         return game;
     }
 
+    /**
+     * Imposta la partita in corso (nuova partita o partita caricata).
+     *
+     * @param newGame la partita
+     */
     public static void setGame(Game newGame) {
         game = newGame;
     }

@@ -6,8 +6,19 @@ import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.goodentity.Knight;
 import it.unicam.cs.mpgc.rpg129230.item.*;
 
+/**
+ * Lo scrigno: crea un oggetto casuale quando l'eroe ne trova uno nel dungeon.
+ */
 public class Chest {
 
+    /**
+     * Crea un oggetto casuale con livello (1-3) e affinità casuali.
+     * Può essere un'arma, un anello, una collana o una pozione. L'arma è sempre
+     * quella adatta alla classe dell'eroe: spada per il Cavaliere, bacchetta per il Mago.
+     *
+     * @param hero l'eroe che apre lo scrigno
+     * @return l'oggetto trovato
+     */
     public static Item createRandomItem(Adventurer hero) {
 
         int level = Dice.roll(1, 3);
@@ -33,6 +44,9 @@ public class Chest {
         }
     }
 
+    /**
+     * @return una delle tre affinità, scelta a caso
+     */
     private static Affinity randomAffinity() {
         switch (Dice.roll(1, 3)) {
             case 1 -> { return Affinity.BLESSED; }
