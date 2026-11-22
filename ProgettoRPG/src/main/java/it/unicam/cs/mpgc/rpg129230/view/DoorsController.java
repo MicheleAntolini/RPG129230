@@ -99,6 +99,7 @@ public class DoorsController {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION,
                         "You found: " + game.getLastFoundItem().getName());
                 alert.setHeaderText("Treasure chest!");
+                RpgApp.styleDialog(alert);
                 alert.showAndWait();
                 refresh();
             }
@@ -136,6 +137,7 @@ public class DoorsController {
         }
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
         alert.setHeaderText(null);
+        RpgApp.styleDialog(alert);
         alert.showAndWait();
     }
 }

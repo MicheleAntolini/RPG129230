@@ -1,0 +1,138 @@
+/* ============================================================
+   Tema "pietra e muschio" – grigi con accenti verdi
+   ============================================================ */
+
+/* ---------- Sfondo e impostazioni generali di ogni schermata ---------- */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #2e332f, #1b1f1c);
+    -fx-font-family: "Segoe UI Semibold", "Segoe UI", "Arial";
+    -fx-font-size: 15px;
+    -fx-alignment: center;   /* tutto al centro della schermata */
+    -fx-spacing: 14;         /* spazio tra un elemento e l'altro */
+    -fx-padding: 20;         /* margine dai bordi della finestra */
+}
+
+/* ---------- Testi ---------- */
+.label {
+    -fx-text-fill: #eef1ec;
+    /* ombra scura dietro le lettere: così non si confondono con lo sfondo */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 3, 0.3, 0, 1);
+}
+
+/* Titoli: da assegnare con Style Class "title" */
+.title {
+    -fx-text-fill: #b8d4ae;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 6, 0.3, 0, 2);
+}
+
+/* ---------- Bottoni ---------- */
+.button {
+    -fx-background-color: #5f7a5a;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20;
+    -fx-border-color: #8fa98a;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 8 22 8 22;
+    -fx-text-alignment: center;   /* per le porte, che hanno il testo su più righe */
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #74926d;
+}
+
+.button:pressed {
+    -fx-background-color: #4d6449;
+}
+
+.button:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* Bottoni delle porte: da assegnare con Style Class "door" */
+.door {
+    -fx-pref-width: 170;
+    -fx-pref-height: 110;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+/* ---------- Fila di bottoni: da assegnare con Style Class "actions" all'HBox ---------- */
+.actions {
+    -fx-alignment: center;
+    -fx-spacing: 12;
+}
+
+/* ---------- Campo del nome ---------- */
+.text-field {
+    -fx-background-color: #262b27;
+    -fx-text-fill: #eef1ec;
+    -fx-prompt-text-fill: #8f978d;
+    -fx-background-radius: 20;
+    -fx-border-color: #5f7a5a;
+    -fx-border-radius: 20;
+    -fx-padding: 6 14 6 14;
+    -fx-alignment: center;   /* il testo scritto sta al centro */
+    -fx-pref-width: 220;
+    -fx-max-width: 220;
+}
+
+/* ---------- Racconto della battaglia e regole ---------- */
+.text-area {
+    -fx-control-inner-background: #262b27;
+    -fx-text-fill: #eef1ec;
+    -fx-font-size: 15px;
+    -fx-background-color: #4a5a4c;
+    -fx-background-radius: 10;
+    -fx-highlight-fill: #5f7a5a;
+}
+
+.text-area .content {
+    -fx-background-color: #262b27;
+    -fx-background-radius: 10;
+}
+
+/* ---------- Lista dello zaino ---------- */
+.list-view {
+    -fx-control-inner-background: #262b27;
+    -fx-background-color: #4a5a4c;
+    -fx-background-radius: 10;
+    -fx-selection-bar: #5f7a5a;
+    -fx-selection-bar-non-focused: #4d6449;
+}
+
+/* ---------- Finestrelle (avvisi, scrigno, scelta di attacco e pozione) ---------- */
+.dialog-pane {
+    -fx-background-color: #262b27;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #2e332f;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: #b8d4ae;
+    -fx-font-size: 16px;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #eef1ec;
+}
+
+/* Menu a tendina delle scelte (attacchi e pozioni) */
+.combo-box {
+    -fx-background-color: #5f7a5a;
+    -fx-background-radius: 12;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #ffffff;
+}
+
+/* ---------- Testo delle regole (How to play) ---------- */
+#rulesArea {
+    -fx-font-size: 18px;
+}

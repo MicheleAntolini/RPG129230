@@ -60,6 +60,7 @@ public class MainMenuController {
         if (name.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter your hero's name first.");
             alert.setHeaderText(null);
+            RpgApp.styleDialog(alert);
             alert.showAndWait();
             return null;
         }
@@ -87,6 +88,7 @@ public class MainMenuController {
         } catch (IOException | ClassNotFoundException e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "No saved game found.");
             alert.setHeaderText(null);
+            RpgApp.styleDialog(alert);
             alert.showAndWait();
         }
     }

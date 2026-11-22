@@ -3,7 +3,9 @@ package it.unicam.cs.mpgc.rpg129230.view;
 import it.unicam.cs.mpgc.rpg129230.Game;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +19,9 @@ import java.io.UncheckedIOException;
  */
 public class RpgApp extends Application {
 
+    private static final double WIDTH = 1200;    // larghezza iniziale della finestra
+    private static final double HEIGHT = 850;   // altezza iniziale della finestra
+
     private static Stage stage;   // la finestra
     private static Game game;     // la partita in corso
 
@@ -29,12 +34,16 @@ public class RpgApp extends Application {
     public void start(Stage primaryStage) {
         stage = primaryStage;
         stage.setTitle("RPG");
+        stage.setMinWidth(800);
+        stage.setMinHeight(600);
         showScene("MainMenu.fxml");
         stage.show();
     }
 
     /**
      * Carica una schermata creata con SceneBuilder e la mostra nella finestra.
+     * La prima volta crea la scena con la grandezza iniziale; le volte dopo cambia solo
+     * il contenuto, così la finestra mantiene la sua dimensione.
      *
      * @param fxml il nome del file .fxml (nella cartella resources/.../view)
      * @throws UncheckedIOException se il file non esiste o contiene errori
@@ -42,10 +51,27 @@ public class RpgApp extends Application {
     public static void showScene(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(RpgApp.class.getResource(fxml));
-            stage.setScene(new Scene(loader.load()));
+            Parent root = loader.load();
+            if (stage.getScene() == null) {
+                stage.setScene(new Scene(root, WIDTH, HEIGHT));
+            } else {
+                stage.getScene().setRoot(root);
+            }
         } catch (IOException e) {
             throw new UncheckedIOException("Impossibile caricare " + fxml, e);
         }
+    }
+
+    /**
+     * Prepara una finestrella (avviso, scelta della pozione...) prima di mostrarla:
+     * le dà lo stile del gioco e la apre al centro della finestra principale.
+     *
+     * @param dialog la finestrella da preparare
+     */
+    public static void styleDialog(Dialog<?> dialog) {
+        dialog.initOwner(stage);
+        dialog.getDialogPane().getStylesheets().add(
+                RpgApp.class.getResource("style.css").toExternalForm());
     }
 
     /**

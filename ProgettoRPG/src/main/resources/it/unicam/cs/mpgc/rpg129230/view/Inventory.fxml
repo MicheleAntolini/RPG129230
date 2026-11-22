@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129230.view.InventoryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129230.view.InventoryController">
    <children>
       <Label text="Inventory" />
       <Label fx:id="equippedLabel" minHeight="-Infinity" text="Label" />
       <Label text="Backpack" />
       <ListView fx:id="backpackList" prefHeight="200.0" prefWidth="200.0" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="actions">
          <children>
             <Button fx:id="equipButton" mnemonicParsing="false" onAction="#onEquip" text="Equip" />
             <Button mnemonicParsing="false" onAction="#onBack" text="Back" />

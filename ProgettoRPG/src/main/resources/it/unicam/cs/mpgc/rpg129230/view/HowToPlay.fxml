@@ -5,11 +5,10 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129230.view.HowToPlayController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129230.view.HowToPlayController">
    <children>
       <Label text="Label" />
-      <TextArea fx:id="rulesArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+      <TextArea fx:id="rulesArea" editable="false" maxWidth="1.7976931348623157E308" wrapText="true" VBox.vgrow="ALWAYS" />
       <Button mnemonicParsing="false" onAction="#onBack" text="Back" />
    </children>
 </VBox>

@@ -83,6 +83,7 @@ public class BattleController {
         dialog.setHeaderText("Choose your attack");
         dialog.setContentText(cooldownText("Power", battle.getPowerCooldown())
                 + "   " + cooldownText("Immobilizing", battle.getImmobilizingCooldown()));
+        RpgApp.styleDialog(dialog);
         Optional<String> result = dialog.showAndWait();
 
         if (result.isEmpty()) {
@@ -124,6 +125,7 @@ public class BattleController {
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
         dialog.setHeaderText("Which potion do you want to use?");
+        RpgApp.styleDialog(dialog);
         Optional<String> result = dialog.showAndWait();
 
         if (result.isPresent()) {
@@ -280,6 +282,7 @@ public class BattleController {
     private void showMessage(String header, String text) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, text);
         alert.setHeaderText(header);
+        RpgApp.styleDialog(alert);
         alert.showAndWait();
     }
 }

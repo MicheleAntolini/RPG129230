@@ -5,15 +5,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129230.view.DoorsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129230.view.DoorsController">
    <children>
       <Label fx:id="levelLabel" text="Label" />
       <Label fx:id="heroLabel" text="Label" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="actions">
          <children>
-            <Button fx:id="door0Button" mnemonicParsing="false" onAction="#onDoor0" text="Button" />
-            <Button fx:id="door1Button" mnemonicParsing="false" onAction="#onDoor1" text="Button" />
-            <Button fx:id="door2Button" mnemonicParsing="false" onAction="#onDoor2" text="Button" />
+            <Button fx:id="door0Button" mnemonicParsing="false" onAction="#onDoor0" styleClass="door" text="Button" />
+            <Button fx:id="door1Button" mnemonicParsing="false" onAction="#onDoor1" styleClass="door" text="Button" />
+            <Button fx:id="door2Button" mnemonicParsing="false" onAction="#onDoor2" styleClass="door" text="Button" />
             <Button fx:id="bossButton" mnemonicParsing="false" onAction="#onBoss" text="Affronta il Boss" />
             <Button mnemonicParsing="false" onAction="#onInventory" text="Inventory" />
             <Button mnemonicParsing="false" onAction="#onSave" text="Save" />

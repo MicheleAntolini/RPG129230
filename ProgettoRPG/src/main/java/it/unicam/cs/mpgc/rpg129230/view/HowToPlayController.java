@@ -25,8 +25,7 @@ public class HowToPlayController {
 
                 THE DUNGEON
                 Each level has 4 rooms. For every room you choose one of 3 doors.
-                Each door shows the chance of finding an enemy, a chest or a fountain,
-                but it is still a gamble!
+                Each door shows the chance of finding an enemy, a chest or a fountain, but it is still a gamble!
                 After the third level you face a random boss.
 
                 ROOMS
@@ -45,15 +44,12 @@ public class HowToPlayController {
                 Potion: drink one of the potions in your potion slots.
 
                 ITEMS
-                Weapons increase attack, rings increase defense,
-                necklaces increase max health, potions restore health.
-                Open the Inventory to equip items. You can carry up to 2 potions
-                in your potion slots: the others stay in the backpack.
+                Weapons increase attack, rings increase defense, necklaces increase max health, potions restore health.
+                Open the Inventory to equip items. You can carry up to 2 potions in your potion slots: the others stay in the backpack.
 
                 AFFINITIES
                 Items can be Blessed, Vital or Protection.
-                A weapon with the right affinity deals 30% more damage to enemies
-                weak to it (Vampire: Blessed, Werewolf: Protection).
+                A weapon with the right affinity deals 30% more damage to enemies weak to it (Vampire: Blessed, Werewolf: Protection).
                 Each boss is weak to one affinity:
                   - Demon: Blessed
                   - Lich: Vital
@@ -73,8 +69,7 @@ public class HowToPlayController {
                   - Fallen Angel: launches mental attacks that deal 30% of your max health.
 
                 LEVEL UP
-                Defeat enemies to gain experience. When you level up your stats grow
-                and your health is fully restored.
+                Defeat enemies to gain experience. When you level up your stats grow and your health is fully restored.
 
                 SAVING
                 Press Save in the doors screen. Use Load game in the main menu to continue.
