@@ -31,7 +31,7 @@ cd RPG129230
 
 <aside>
 
-gradle build
+./gradlew build
 
 </aside>
 
@@ -39,7 +39,7 @@ gradle build
 
 <aside>
 
-gradle run
+./gradlew run
 
 </aside>
 
