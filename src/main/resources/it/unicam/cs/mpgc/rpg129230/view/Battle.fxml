@@ -9,14 +9,10 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129230.view.BattleController">
    <children>
-      <Label fx:id="enemyLabel" text="Label">
-         <graphic>
-            <ProgressBar fx:id="enemyHealthBar" prefWidth="200.0" progress="0.0" />
-         </graphic></Label>
-      <Label fx:id="heroLabel" text="Label">
-         <graphic>
-            <ProgressBar fx:id="heroHealthBar" prefWidth="200.0" progress="0.0" />
-         </graphic></Label>
+      <Label fx:id="enemyLabel" text="Label" />
+      <ProgressBar fx:id="enemyHealthBar" prefWidth="200.0" progress="0.0" />
+      <Label fx:id="heroLabel" text="Label" />
+      <ProgressBar fx:id="heroHealthBar" prefWidth="200.0" progress="0.0" />
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="actions">
          <children>
             <Button fx:id="attackButton" mnemonicParsing="false" onAction="#onAttack" text="Attack" />

@@ -181,7 +181,4 @@
 /* Nomi e vita in battaglia e nella schermata delle porte, un po' più grandi */
 #heroLabel, #enemyLabel {
     -fx-font-size: 18px;
-    -fx-min-width: 420;
-    -fx-pref-width: 420;
-    -fx-alignment: center;
 }
