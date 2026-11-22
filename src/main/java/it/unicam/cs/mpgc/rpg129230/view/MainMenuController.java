@@ -1,7 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.view;
 
 import it.unicam.cs.mpgc.rpg129230.Game;
-import it.unicam.cs.mpgc.rpg129230.SaveManager;
 import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.goodentity.Knight;
 import it.unicam.cs.mpgc.rpg129230.goodentity.Mage;
@@ -80,12 +79,15 @@ public class MainMenuController {
     /**
      * Bottone "Load game": carica la partita salvata, oppure avvisa se non ce n'è una.
      */
+    /**
+     * Bottone "Load game": carica la partita salvata, oppure avvisa se non ce n'è una.
+     */
     @FXML
     private void onLoad() {
         try {
-            RpgApp.setGame(SaveManager.load());
+            RpgApp.setGame(RpgApp.getRepository().load());   // <-- prima era SaveManager.load()
             RpgApp.showScene("Doors.fxml");
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {                            // <-- prima c'era anche ClassNotFoundException
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "No saved game found.");
             alert.setHeaderText(null);
             RpgApp.styleDialog(alert);

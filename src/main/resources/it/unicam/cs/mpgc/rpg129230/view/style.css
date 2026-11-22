@@ -31,12 +31,16 @@
 .button {
     -fx-background-color: #5f7a5a;
     -fx-text-fill: #ffffff;
-    -fx-background-radius: 20;
+    -fx-font-size: 16px;
+    -fx-background-radius: 24;
     -fx-border-color: #8fa98a;
-    -fx-border-radius: 20;
+    -fx-border-radius: 24;
     -fx-border-width: 1;
-    -fx-padding: 8 22 8 22;
-    -fx-text-alignment: center;   /* per le porte, che hanno il testo su più righe */
+    -fx-padding: 10 28 10 28;
+    -fx-min-width: 170;
+    -fx-min-height: 46;
+    -fx-text-alignment: center;
+    -fx-text-overrun: clip;   /* se proprio non ci sta, niente puntini "..." */
     -fx-cursor: hand;
 }
 
@@ -54,10 +58,14 @@
 
 /* Bottoni delle porte: da assegnare con Style Class "door" */
 .door {
-    -fx-pref-width: 170;
-    -fx-pref-height: 110;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-min-width: 220;
+    -fx-min-height: 160;
+    -fx-pref-width: 220;
+    -fx-pref-height: 160;
+    -fx-font-size: 16px;
+    -fx-padding: 10;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
 }
 
 /* ---------- Fila di bottoni: da assegnare con Style Class "actions" all'HBox ---------- */
@@ -135,4 +143,45 @@
 /* ---------- Testo delle regole (How to play) ---------- */
 #rulesArea {
     -fx-font-size: 18px;
+}
+
+/* ---------- Barre della vita ---------- */
+.progress-bar {
+    -fx-pref-width: 360;
+}
+
+.progress-bar .track {
+    -fx-background-color: #1b1f1c;
+    -fx-background-radius: 12;
+    -fx-border-color: #4a5a4c;
+    -fx-border-radius: 12;
+}
+
+.progress-bar .bar {
+    -fx-padding: 9;              /* altezza della barra */
+    -fx-background-insets: 2;
+    -fx-background-radius: 10;
+}
+
+/* eroe: verde muschio */
+#heroHealthBar .bar {
+    -fx-background-color: linear-gradient(to bottom, #9fd08e, #5f7a5a);
+}
+
+/* eroe con poca vita: diventa ambra */
+#heroHealthBar.low .bar {
+    -fx-background-color: linear-gradient(to bottom, #e3bd5c, #a07a2a);
+}
+
+/* nemico: rosso scuro */
+#enemyHealthBar .bar {
+    -fx-background-color: linear-gradient(to bottom, #d0786a, #7a3f35);
+}
+
+/* Nomi e vita in battaglia e nella schermata delle porte, un po' più grandi */
+#heroLabel, #enemyLabel {
+    -fx-font-size: 18px;
+    -fx-min-width: 420;
+    -fx-pref-width: 420;
+    -fx-alignment: center;
 }

@@ -1,7 +1,6 @@
 package it.unicam.cs.mpgc.rpg129230.view;
 
 import it.unicam.cs.mpgc.rpg129230.Game;
-import it.unicam.cs.mpgc.rpg129230.SaveManager;
 import it.unicam.cs.mpgc.rpg129230.dungeon.Door;
 import it.unicam.cs.mpgc.rpg129230.dungeon.Level;
 import it.unicam.cs.mpgc.rpg129230.enums.RoomType;
@@ -130,7 +129,7 @@ public class DoorsController {
     private void onSave() {
         String message;
         try {
-            SaveManager.save(game);
+            RpgApp.getRepository().save(game);   // <-- prima era SaveManager.save(game);
             message = "Game saved!";
         } catch (IOException e) {
             message = "Could not save the game: " + e.getMessage();

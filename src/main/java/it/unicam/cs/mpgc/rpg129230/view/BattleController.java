@@ -8,11 +8,7 @@ import it.unicam.cs.mpgc.rpg129230.enums.BattleAction;
 import it.unicam.cs.mpgc.rpg129230.goodentity.Adventurer;
 import it.unicam.cs.mpgc.rpg129230.item.Potion;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +32,8 @@ public class BattleController {
     @FXML private Button dodgeButton;
     @FXML private Button potionButton;
     @FXML private Button continueButton;
+    @FXML private ProgressBar heroHealthBar;
+    @FXML private ProgressBar enemyHealthBar;
 
     private Game game;
     private Battle battle;
@@ -234,6 +232,9 @@ public class BattleController {
         String enemyStatus = battle.isEnemyStunned() ? "  [Stunned]" : "";
         enemyLabel.setText(enemy.getName() + "   HP " + enemy.getHealthPoints() + "/" + enemy.getMaxHealthPoints() + enemyStatus);
 
+        updateHealthBar(heroHealthBar, hero.getHealthPoints(), hero.getMaxHealthPoints());
+        updateHealthBar(enemyHealthBar, enemy.getHealthPoints(), enemy.getMaxHealthPoints());
+
         boolean over = battle.isBattleOver();
         attackButton.setDisable(over);
         defendButton.setDisable(over);
@@ -247,6 +248,24 @@ public class BattleController {
             } else {
                 log("You have been defeated...");
             }
+        }
+    }
+
+    /**
+     * Riempie una barra della vita in base alla vita rimasta. Sotto il 30%
+     * la barra cambia colore per avvisare che la vita è bassa.
+     *
+     * @param bar   la barra da aggiornare
+     * @param hp    la vita attuale
+     * @param maxHp la vita massima
+     */
+    private void updateHealthBar(ProgressBar bar, int hp, int maxHp) {
+        double ratio = (double) hp / maxHp;   // un numero tra 0 (morto) e 1 (vita piena)
+        bar.setProgress(ratio);
+
+        bar.getStyleClass().remove("low");
+        if (ratio <= 0.3) {
+            bar.getStyleClass().add("low");
         }
     }
 

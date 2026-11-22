@@ -1,6 +1,8 @@
 package it.unicam.cs.mpgc.rpg129230.view;
 
 import it.unicam.cs.mpgc.rpg129230.Game;
+import it.unicam.cs.mpgc.rpg129230.saves.FileGameRepository;
+import it.unicam.cs.mpgc.rpg129230.saves.GameRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.nio.file.Path;
 
 /**
  * L'applicazione JavaFX: gestisce la finestra del gioco e il passaggio da una schermata all'altra.
@@ -19,11 +22,12 @@ import java.io.UncheckedIOException;
  */
 public class RpgApp extends Application {
 
-    private static final double WIDTH = 1200;    // larghezza iniziale della finestra
-    private static final double HEIGHT = 850;   // altezza iniziale della finestra
+    private static final double WIDTH = 1500;    // larghezza iniziale della finestra
+    private static final double HEIGHT = 950;   // altezza iniziale della finestra
 
     private static Stage stage;   // la finestra
     private static Game game;     // la partita in corso
+    private static final GameRepository repository = new FileGameRepository(Path.of("savegame.dat"));
 
     /**
      * Chiamato da JavaFX all'avvio: apre la finestra con il menu principale.
@@ -88,5 +92,12 @@ public class RpgApp extends Application {
      */
     public static void setGame(Game newGame) {
         game = newGame;
+    }
+
+    /**
+     * @return il sistema di salvataggio usato dal gioco
+     */
+    public static GameRepository getRepository() {
+        return repository;
     }
 }
