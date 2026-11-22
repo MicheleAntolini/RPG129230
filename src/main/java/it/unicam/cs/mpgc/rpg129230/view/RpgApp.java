@@ -1,8 +1,8 @@
 package it.unicam.cs.mpgc.rpg129230.view;
 
 import it.unicam.cs.mpgc.rpg129230.Game;
-import it.unicam.cs.mpgc.rpg129230.saves.FileGameRepository;
 import it.unicam.cs.mpgc.rpg129230.saves.GameRepository;
+import it.unicam.cs.mpgc.rpg129230.saves.JsonGameRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,7 +27,7 @@ public class RpgApp extends Application {
 
     private static Stage stage;   // la finestra
     private static Game game;     // la partita in corso
-    private static final GameRepository repository = new FileGameRepository(Path.of("savegame.dat"));
+    private static final GameRepository repository = new JsonGameRepository(Path.of("savegame.json"));
 
     /**
      * Chiamato da JavaFX all'avvio: apre la finestra con il menu principale.
